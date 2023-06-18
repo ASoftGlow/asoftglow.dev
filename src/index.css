@@ -1,0 +1,39 @@
+:root {
+    --color: rgb(131 211 126);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color);
+}
+
+main {
+    justify-content: center;
+    display: flex;
+    color: black;
+    gap: 20px;
+}
+
+::selection {
+    color: white;
+    background: black;
+}
+
+#title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.elevation {
+    border: 4px solid black;
+    box-shadow: -8px 8px black;
+    margin: 0 0 8px 8px;
+}

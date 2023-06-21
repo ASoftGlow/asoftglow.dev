@@ -1,6 +1,4 @@
-:root {
-    --color: rgb(131 211 126);
-}
+@use 'theme';
 
 html {
     height: 100%;
@@ -22,13 +20,12 @@ main {
 
 ::selection {
     color: white;
-    background: black;
+    background: #0000007a;
 }
 
 #title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: theme.$font;
     font-size: 60px;
-    letter-spacing: 0.1em;
     text-align: center;
 }
 

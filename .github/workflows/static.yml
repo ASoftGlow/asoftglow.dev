@@ -35,8 +35,8 @@ jobs:
       - name: Sass Build
         uses: gha-utilities/sass-build@v0.5.1
         with:
-          source: scss/styles.scss
-          destination: css/index.css
+          source: scss/
+          destination: css/
           outputStyle: compressed
           sourceComments: false
           sourceMap: false

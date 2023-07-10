@@ -35,8 +35,16 @@ jobs:
       - name: Sass Build
         uses: gha-utilities/sass-build@v0.5.1
         with:
-          source: scss/
-          destination: css/
+          source: |
+            index.scss
+            menyow.scss
+            styles.scss
+            website.scss
+          destination: |
+            index.css
+            menyow.css
+            styles.css
+            website.css
           outputStyle: compressed
           sourceComments: false
           sourceMap: false

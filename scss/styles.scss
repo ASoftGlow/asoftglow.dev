@@ -10,6 +10,9 @@ body {
     height: 100%;
     background-color: var(--color-accent);
     color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 $footer-height: 50px + 10px * 2 + 1px + 18px;
@@ -19,48 +22,144 @@ main {
     flex-direction: column;
     width: 80%;
     max-width: 400px;
-    margin: auto;
-    height: calc(100% - $footer-height);
+    margin: 0 auto;
 }
 
 footer {
     margin-top: 50px;
     padding: 10px 30px 10px 30px;
     text-align: center;
-    border-top: black solid 1px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 30px;
+    flex-wrap: wrap;
 
-::selection {
-    color: var(--color-bg);
-    background: theme.alpha(var(--color-text), 0.6);
-}
+    :not(.icon) {
+        background-color: var(--color-accent);
+        margin: 0;
+        padding: 0 10px;
+    }
 
-#title,
-#suptitle {
-    font-family: theme.$font;
-    font-size: 60px;
-    text-align: center;
-
-    // Spacing between words
-    span {
-        letter-spacing: 0.3ch;
+    a {
+        text-decoration: none;
     }
 }
 
-#suptitle {
-    font-size: 40px;
-    font-weight: lighter;
-    margin-bottom: -1em;
+h1,
+h2,
+h3,
+h3,
+h5,
+h6 {
+    font-family: theme.$title-font;
+}
+
+::selection {
+    color: #ffffffd4;
+    background: #00000058;
+}
+
+li {
+    list-style-type: square;
+}
+
+a {
+    color: var(--color-text);
 }
 
 .elevation {
-    border: 4px solid var(--color-text);
-    box-shadow: -8px 8px var(--color-text);
-    margin: 0 0 8px 8px;
+    $elv-width: 8px;
+    border: calc($elv-width/2) solid var(--color-text);
+    box-shadow: -$elv-width $elv-width var(--color-text);
+    margin: 0 0 $elv-width $elv-width;
+    background-color: var(--color-bg);
 }
 
-.bio {
-    p {
-        text-align: center;
+.elv-wrapper {
+    position: relative;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.elv-title {
+    position: absolute;
+    width: fit-content;
+    margin: auto;
+    top: 0;
+    left: 40px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 21px;
+    font-weight: 200;
+}
+
+.elv-content {
+    padding-top: 35px;
+}
+
+.divider {
+    width: 99%;
+    height: 60px;
+}
+
+.dotted {
+    $size: 1px;
+    $spacing: 20px;
+    background-image: repeating-radial-gradient(var(--color-text), var(--color-text) $size, transparent $size, transparent);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: $spacing $spacing;
+}
+
+.striped {
+    $width: 2px;
+    $spacing: 20px;
+    background-image: repeating-linear-gradient(45deg, var(--color-text), var(--color-text) $width, transparent $width, transparent $spacing);
+}
+
+input[type="color"] {
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 20px;
+}
+
+input[type="color"] {
+    &::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    &::-webkit-color-swatch {
+        outline: 1px solid white;
+        outline-offset: -2px;
+        border: 3px double var(--color-text);
+    }
+}
+
+#hair {
+    position: fixed;
+}
+
+#home-link {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    margin: -10px;
+    width: fit-content;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #home-link {
+        position: unset;
+        margin-bottom: -10px;
     }
 }

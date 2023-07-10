@@ -1,22 +1,25 @@
-@use 'utils';
-@forward 'utils';
-
 $font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+$title-font: "Moderne Sans", Verdana, Tahoma, sans-serif;
 
 :root {
     color-scheme: light dark;
 
-    @include utils.defineColorHSL(--color-text, 0, 0%, 0%);
-    @include utils.defineColorHSL(--color-bg, 0, 0%, 100%);
+    --color-text: black;
+    --color-bg: white;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        @include utils.defineColorHSL(--color-accent, 130, 33%, 66%);
+        --color-accent: #8cc595;
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        @include utils.defineColorHSL(--color-accent, 130, 20%, 33%);
+        --color-accent: #436549;
     }
 }
+
+@font-face {
+    font-family: "Moderne Sans";
+    src: url("../fonts/Moderne Sans Font.ttf");
+  }

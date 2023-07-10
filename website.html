@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+
+    <title>ASoftGlow.dev | About</title>
+    <meta name="author" content="ASoftGlow">
+    <meta name="creator" content="ASoftGlow">
+    <meta name="description" content="ASoftGlow's developer portfolio.">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />
+
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/website.css">
+    <script src="scripts/index.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <a id="home-link" href="/" title="Back">←</a>
+        <header>
+            <div>
+                <h1>ASoftGlow.dev</h1>
+                <h3>Static website</h3>
+            </div>
+            <img class="icon" width="64px" height="64px" src="images/favicon.png" aria-hidden="true">
+        </header>
+
+        <h2>Why?</h2>
+        <p>The idea of having a website under my own domain has always apealed to me.</p>
+        <ul>
+            <li>I think it's cool</li>
+            <li>
+                <details>
+                    <summary>Shorter url</summary>
+                    <p>
+                        When using a website host without a custom domain, your site is usually under their domain.
+                        It may be identified by the subdomain or path.<br>
+                        For example, my default <a href="https://pages.github.com">Github Pages</a> url would be <code>asoftglow.github.io</code>.
+                        Alternatively, it could be identified in the path, like <a href="https://sites.google.com">Google Sites</a>:
+                        <code>sites.google.com/view/asoftglow</code>
+                    </p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Customizability and mobility</summary>
+                    <h5>Mobility</h5>
+                    <p>
+                        Suppose you were hosting your website through <a href="https://wordpress.com">WordPress</a> and its url was
+                        <code>asoftglow.wordpress.com</code>.
+                        You give out the link to everyone you know, and your relatives bookmark it for safekeeping.
+                        Now you switch to Google Sites. Your new url is <code>sites.google.com/view/asoftglow</code>.
+                        See the problem? Your relatives' bookmarks no longer work.
+                        You need to inform them all of the change, which means you need to deal with... a few choice relatives.
+                        That's no good. Instead, if you had used a custom domain, you'd simply tell your new host to use it.
+                    </p>
+                    <h5>Customizability</h5>
+                    <p>
+                        There are a plethora of top level domains (TLDs) to choose from.
+                    </p>
+                </details>
+            </li>
+        </ul>
+
+        <h2>Domain Registrar</h2>
+
+        <h2>Host</h2>
+        <a href="https://pages.github.com">Github Pages</a>
+
+        <h2>Design</h2>
+        <h3>Inspiration</h3>
+        <ul>
+            <li>
+                <p>
+                    Coincidentally, I found this site while researching TLDs.
+                    The site doesn't seem to be functional, but I absolutely adore the design.
+                    It's clean and simple, with a retro vibe I didn't previously know about.
+                    <a href="https://tld.observer">TLD Observer</a>
+                </p>
+            </li>
+        </ul>
+        <h3>Colors</h3>
+        <script src="scripts/website.js"></script>
+        <label>Accent color</label>
+        <input type="color" id="accent-color">
+
+    </main>
+    <footer>
+        <p>© 2023 ASoftGlow</p>
+        <a href="mailto:me@asoftglow.dev" style="display: flex;column-gap: 1ch;">
+            <svg class="icon" id="email" width="1em" viewBox="1.25 -0.75 17.5 12.5">
+                <g stroke="currentColor" stroke-width="1.1" fill="none">
+                    <path d="M18,0 L10,8 L2,0 Z M2,0 L2,11 L18,11 L18,0 Z"></path>
+                </g>
+            </svg>
+            Contact
+        </a>
+        <p>This site is currently WIP</p>
+    </footer>
+    <svg id="hair" width="90" height="30" style="display: none;" aria-hidden="true" hidden>
+        <defs>
+            <linearGradient id="grad">
+                <stop offset="0%" stop-color="#222" />
+                <stop offset="30%" stop-opacity="0.6" />
+                <stop offset="95%" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+        <path d="M 0 0 C 0 0, 2 25, 90 20" fill="transparent" stroke="url(#grad)" stroke-width="0.1mm" />
+    </svg>
+</body>
+
+</html>

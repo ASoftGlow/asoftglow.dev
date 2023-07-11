@@ -36,15 +36,15 @@ jobs:
         uses: gha-utilities/sass-build@v0.5.1
         with:
           source: |
-            index.scss
-            menyow.scss
-            styles.scss
-            website.scss
+            scss/index.scss
+            scss/menyow.scss
+            scss/styles.scss
+            scssywebsite.scss
           destination: |
-            index.css
-            menyow.css
-            styles.css
-            website.css
+            css/index.css
+            css/menyow.css
+            css/styles.css
+            css/website.css
           outputStyle: compressed
           sourceComments: false
           sourceMap: false

@@ -39,7 +39,7 @@ jobs:
             scss/index.scss
             scss/menyow.scss
             scss/styles.scss
-            scssywebsite.scss
+            scss/website.scss
           destination: |
             css/index.css
             css/menyow.css

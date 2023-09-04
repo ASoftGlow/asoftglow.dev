@@ -106,9 +106,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: scra
-      - run: |
-          ls
-          ls scra
+          path: scra
+      - run: ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

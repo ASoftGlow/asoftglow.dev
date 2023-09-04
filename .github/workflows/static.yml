@@ -47,7 +47,7 @@ jobs:
           sourceMap: false
       - run: ls
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           # Upload entire repository
           path: '.'
@@ -86,9 +86,8 @@ jobs:
       - name: Build with Next.js
         run: npx --no-install next build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
-          # Upload entire repository
           path: 'out'
           name: scra
           
@@ -103,12 +102,18 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dev
-      - name: Download dev artifact
+      - name: Download scra artifact
         uses: actions/download-artifact@v3
         with:
           name: scra
-          path: scra
-      - run: ls
+      - run: |
+          ls
+          ls scra
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: '.'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Deploy to GitHub Pages

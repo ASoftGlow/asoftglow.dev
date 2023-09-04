@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          path: main
       - name: Make destination directory for compiled CSS
         run: mkdir -vp ./css
       - name: Sass Build
@@ -48,8 +50,38 @@ jobs:
           outputStyle: compressed
           sourceComments: false
           sourceMap: false
+      - name: Checkout SCRA
+        uses: actions/checkout@v3
+        with:
+          repository: ASoftGlow/scra
+          token: ${{ secrets.GH_SCRA_PAT }}
+          path: scra/temp
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - run: cd scra/temp
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: npm
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - name: Install dependencies
+        run: npm install
+      - name: Build with Next.js
+        run: npx --no-install next build
+      - run: cd ..
+      - name: Copy next build
+        run: cp ./temp/out/* .
+      - run: cd ..
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

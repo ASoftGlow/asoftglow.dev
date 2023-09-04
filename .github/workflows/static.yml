@@ -45,6 +45,7 @@ jobs:
           outputStyle: compressed
           sourceComments: false
           sourceMap: false
+      - run: ls
           
   build-scra:
     needs: build-dev
@@ -81,10 +82,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - name: Install dependencies
         run: npm install
-        working-directory: ./srca/temp/
+        working-directory: srca/temp/
       - name: Build with Next.js
         run: npx --no-install next build
-        working-directory: ./srca/temp/
+        working-directory: srca/temp/
       - name: Copy next build
         run: |
           cp ./srca/temp/out/* ./srca

@@ -47,6 +47,7 @@ jobs:
           sourceMap: false
           
   build-scra:
+    needs: build-dev
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -22,10 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-dev:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,13 +45,76 @@ jobs:
           outputStyle: compressed
           sourceComments: false
           sourceMap: false
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      - run: ls
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+          name: dev
+          
+  build-scra:
+    needs: build-dev
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+  
+    steps:
+      - name: Checkout SCRA
+        uses: actions/checkout@v3
+        with:
+          repository: ASoftGlow/scra
+          token: ${{ secrets.GH_SCRA_PAT }}
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: npm
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - name: Install dependencies
+        run: npm install
+      - name: Build with Next.js
+        run: npx --no-install next build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: 'out'
+          name: scra
+          
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: [build-dev, build-scra]
+    steps:
+      - name: Download dev artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dev
+      - name: Download scra artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: scra
+          path: scra
+      - run: ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
           path: '.'
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+
+    <title>ASoftGlow.dev</title>
+    <meta name="author" content="ASoftGlow">
+    <meta name="creator" content="ASoftGlow">
+    <meta name="description" content="ASoftGlow's developer portfolio.">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />
+
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/terrain.css">
+</head>
+
+<body>
+    <main>
+        <a id="home-link" href="/" title="Back">←</a>
+        <header>
+            <div>
+                <h1>Terrain Generator</h1>
+            </div>
+        </header>
+        <article>
+            <div class="elevation carousel">
+                <figure>
+                    <img src="images/terrain.png">
+                </figure>
+                <figure>
+                    <img src="images/save_browser.png" alt="Save Browser">
+                    <figcaption>Save browser</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/import_save.png" alt="Import save">
+                    <figcaption>Import save</figcaption>
+                </figure>
+            </div>
+            <section>
+                <h2>Features</h2>
+                <ul class="tasklist">
+                    <li>
+                        <input type="checkbox" disabled>Terrain generation
+                        <ul>
+                            <li><input type="checkbox" disabled checked>Based on the Wave Function Collapse algorithm</li>
+                            <li><input type="checkbox" disabled checked>Chunk system</li>
+                            <li><input type="checkbox" disabled checked>Multithreaded</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" disabled checked>Save system
+                        <ul>
+                            <li><input type="checkbox" disabled checked>Import and export saves</li>
+                            <li><input type="checkbox" disabled checked>Save file explorer</li>
+                            <li><input type="checkbox" disabled checked><abbr title="Command Line Interface">CLI</abbr> load save file</li>
+                            <li><input type="checkbox" disabled checked>Custom save file type (<code>.glowsave</code>)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" disabled>Player system
+                        <ul>
+                            <li><input type="checkbox" disabled>Movement</li>
+                        </ul>
+                    </li>
+                    <li><input type="checkbox" disabled checked><abbr title="Graphical User Interface">GUI</abbr></li>
+                    <li><input type="checkbox" disabled checked>Installer</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Download</h2>
+                <p>Source: <a href="https://github.com/ASoftGlow/OpenGL-Test">GitHub</a></p>
+                <p>Installer:</p>
+                <table>
+                    <tr>
+                        <th>Architecture</th>
+                        <th>Download</th>
+                    </tr>
+                    <tr>
+                        <td>win64</td>
+                        <td>
+                            <a href="https://github.com/ASoftGlow/OpenGL-Test/releases/download/latest/GameInstaller-win64.msi">msi</a>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h2>Goals</h2>
+                <ul>
+                    <li>Learn basics of <abbr title="Open Graphics Library">OpenGL</abbr></li>
+                    <li>Practice programming in C++</li>
+                    <li>Implement the Wave Function Collapse algorithm</li>
+                    <li>Create a functional and presentable game</li>
+                    <li>Explore and use Microsoft Visual Studio and Git via Github</li>
+                </ul>
+                <h2>Beginnings</h2>
+                <p>Origanally, I became interested graphics programming while following the devlogs of a performance mod for <a href="https://minecraft.net">Minecraft</a> called <a
+                        href="https://modrinth/mod/sodium">Sodium</a>.
+                    Interesting, but as interesting as French song is to a cat. Sounds nice, but is utter nonsense.
+                    Thus, I wanted to better understand the conversations.
+                </p>
+                <p>Additionally, I happened to be starting to learn C++.</p>
+            </section>
+            <section>
+                <h2>Save system</h2>
+
+                <figure>
+                    <img width="32px" src="images/glowsave.ico" alt="glowsave icon" style="image-rendering: pixelated;">
+                    <figcaption><code>.glowsave</code> file type icon</figcaption>
+                </figure>
+                <details open style="position: relative;">
+                    <summary><code>.glowsave</code> byte format</summary>
+                    <p>Hover over each section to see its deciaml / ASCII value.</p>
+                    <p>(little endian)</p>
+                    <div class="hex">
+                        <div class="hex-offset">
+                            <div>0000</div>
+                            <div>0010</div>
+                            <div>0020</div>
+                            <div>0030</div>
+                            <div>0040</div>
+                        </div>
+                        <div class="hex-bytes">
+                            <div class="id" title="1"><span>01</span></div>
+                            <div class="name" title="My World" style="grid-column: 2 / 17;">
+                                <span>4D</span><span>79</span><span>20</span><span>57</span><span>6F</span><span>72</span><span>6C</span><span>64</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span>
+                            </div>
+                            <div class="name" title="My World" style="grid-column: 1 / 7;">
+                                <span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span>
+                            </div>
+                            <div class="created-time" title="20:20 8/28/23" style="grid-column: 7 / 15;">
+                                <span>D3</span><span>39</span><span>ED</span><span>64</span><span>00</span><span>00</span><span>00</span><span>00</span>
+                            </div>
+                            <div class="saved-time" title="20:20 8/28/23" style="grid-column: 15 / 17;">
+                                <span>DB</span><span>39</span>
+                            </div>
+                            <div class="saved-time" title="20:20 8/28/23" style="grid-column: 1 / 7;">
+                                <span>ED</span><span>64</span><span>00</span><span>00</span><span>00</span><span>00</span>
+                            </div>
+                            <div class="chunk-size" title="16" style="grid-column: 7 / 9;">
+                                <span>10</span><span>00</span>
+                            </div>
+                            <span>FF</span><span>FF</span><span>FF</span><span>FF</span><span>FF</span><span>FF</span><span>FF</span><span>FF</span><span>25</span><span>0F</span><span>23</span><span>2B</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>04</span><span>2C</span><span>20</span><span>22</span><span>21</span><span>0F</span><span>22</span><span>2A</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>00</span><span>04</span><span>0C</span><span>09</span><span>2C</span><span>…</span>
+                        </div>
+                    </div>
+                    <div class="keys">
+                        <div>
+                            <div class="key id"></div>Version
+                        </div>
+                        <div>
+                            <div class="key name"></div>Name
+                        </div>
+                        <div>
+                            <div class="key created-time"></div>Created time
+                        </div>
+                        <div>
+                            <div class="key saved-time"></div>Saved time
+                        </div>
+                        <div>
+                            <div class="key chunk-size"></div>Chunk size
+                        </div>
+                    </div>
+                </details>
+            </section>
+            <section>
+                <h2>Generation</h2>
+                <figure>
+                    <img src="images/mesh.png" alt="Triangles">
+                    <figcaption>Triangles</figcaption>
+                </figure>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>© 2023 ASoftGlow</p>
+        <a href="mailto:me@asoftglow.dev" style="display: flex;column-gap: 1ch;">
+            <svg class="icon" id="email" width="1em" viewBox="1.25 -0.75 17.5 12.5">
+                <g stroke="currentColor" stroke-width="1.1" fill="none">
+                    <path d="M18,0 L10,8 L2,0 Z M2,0 L2,11 L18,11 L18,0 Z"></path>
+                </g>
+            </svg>
+            Contact
+        </a>
+        <p>This site is currently WIP</p>
+    </footer>
+</body>
+
+</html>

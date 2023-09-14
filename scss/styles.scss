@@ -142,7 +142,7 @@ input[type="color"] {
 }
 
 #home-link {
-    position: absolute;
+    position: fixed;
     left: 20px;
     top: 20px;
     font-size: 20px;
@@ -155,11 +155,20 @@ input[type="color"] {
     &:hover {
         text-decoration: underline;
     }
-}
 
-@media screen and (max-width: 500px) {
-    #home-link {
+    @media screen and (max-width: 575px) {
+        position: absolute;
+    }
+
+    @media screen and (max-width: 500px) {
         position: unset;
         margin-bottom: -10px;
     }
+}
+
+// summary::marker {
+//     content: '->';
+// }
+summary {
+    
 }

@@ -1,0 +1,140 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+
+.tasklist {
+    * {
+        list-style: none;
+    }
+
+    &,
+    ul,
+    li {
+        line-height: 1.5em;
+    }
+
+    input[type="checkbox"] {
+        margin: 0 0.5em 0.25em -1.4em;
+        vertical-align: middle;
+    }
+}
+
+th,
+td {
+    padding: 0 1em;
+}
+
+.hex {
+    margin-top: 8px;
+    display: flex;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.hex-offset {
+    position: absolute;
+    left: -3em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+}
+
+.hex-bytes {
+    display: grid;
+    width: 100%;
+    column-width: 2em;
+    gap: 2px;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+
+    span {
+        padding-left: 4px;
+        padding-right: 4px;
+
+        // &:nth-child(8) {
+        //     padding-right: 12px;
+        // }
+    }
+
+    div {
+        border-radius: 0.5lh;
+        outline: 1px solid black;
+        outline-offset: -1px;
+        display: flex;
+        column-gap: 2px;
+    }
+}
+
+.id {
+    background-color: rgba(204, 255, 0, 0.4);
+}
+
+.name {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.created-time {
+    background-color: rgba(0, 191, 255, 0.4);
+}
+
+.saved-time {
+    background-color: rgba(255, 88, 11, 0.4);
+}
+
+.chunk-size {
+    background-color: rgba(255, 106, 0, 0.646);
+}
+
+.key {
+    display: inline-block;
+    margin-right: 0.5em;
+    height: 1em;
+    width: 1em;
+    border-radius: 0.5em;
+    vertical-align: text-bottom;
+    outline: 1px solid black;
+}
+
+div:has(>.key) {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1em;
+    margin-top: 16px;
+}
+
+figure>img {
+    max-width: min(70vw, 380px);
+    max-height: 100%;
+}
+
+.carousel {
+    overflow-x: scroll;
+    display: flex;
+    height: 300px;
+    padding-left: 41px;
+    scroll-snap-type: x mandatory;
+    background-color: transparent;
+
+    figure {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+
+    figcaption {
+        margin-top: calc(-1lh - 10px);
+        margin-right: 10px;
+        text-align: right;
+    }
+}

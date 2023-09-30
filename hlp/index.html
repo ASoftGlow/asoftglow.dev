@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Line Picker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="manifest" href="/index.webmanifest">
+    <link rel="icon" href="imgs/puck.svg">
+    <style>
+        main {
+            margin-left: auto;
+            margin-right: auto;
+            min-width: 400px;
+            max-width: 500px;
+            padding: 8px 4px;
+            border: 1px solid;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            max-width: 150px;
+            height: 2lh;
+            margin-bottom: 6px;
+            border-radius: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .cont {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .cont>* {
+            width: 100%;
+        }
+
+        .cont>div {
+            margin-top: 1em;
+        }
+
+        #roster {
+            background-color: #ff000012;
+            border: 1px solid;
+            text-align: initial;
+            height: 220px;
+            margin: 0;
+            list-style: none;
+            padding-inline-start: 1em;
+            padding: 0.5em;
+            overflow: auto;
+        }
+
+        #rost-cont {
+            margin: 0 8px;
+        }
+
+        #rost-cont p {
+            font-weight: bold;
+            margin-bottom: 2px;
+            margin-top: 0;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em 1em;
+            justify-content: center;
+        }
+
+        .grid span {
+            border: 1px solid;
+            width: 150px;
+            height: 3lh;
+            padding: 0.5em 0.25em;
+            white-space: pre-wrap;
+            position: relative;
+            margin-top: calc(0.5em + 6px);
+        }
+
+        .grid span::before {
+            content: attr(name);
+            font-size: small;
+            position: absolute;
+            top: calc(-1.5em - 2px);
+            color: var(--color-sec);
+            left: 0;
+            right: 0;
+        }
+
+        #missing select:not(:last-child) {
+            margin-right: 12px;
+        }
+
+        #file {
+            position: absolute;
+            left: 0;
+            height: 24px;
+        }
+
+        b {
+            margin: 1em 0 0.5em;
+            display: block;
+        }
+
+        .control {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 0.5em 1em;
+            margin-top: 1em;
+            margin-left: 8px;
+        }
+
+        :root {
+            --color-sec: #7a7a7a;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-sec: #959595;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="edit-page">
+            <div id="goalie">
+                <label>Goalie</label>
+                <select data-i=""></select>
+            </div>
+            <div class="cont">
+                <div id="lw">
+                    <label>LW</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                </div>
+                <div id="c">
+                    <label>C</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                </div>
+                <div id="rw">
+                    <label>RW</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                </div>
+            </div>
+            <div class="cont">
+                <div>
+                    <div id="rost-cont">
+                        <p>Roster</p>
+                        <ul id="roster"></ul>
+                    </div>
+                </div>
+                <div id="ld">
+                    <label>LD</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                    <div class="control">
+                        <div style="position: relative; margin-bottom: 24px;">
+                            <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Load players from text file, one per line:</label>
+                            <input id="file" type="file" onchange="importPlayersFile(this.files)" accept=".txt">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; width: 100%;">
+                            <button onclick="display()">Display</button>
+                            <button onclick="reset();clearPos();">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="rd">
+                    <label>RD</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                </div>
+            </div>
+            <div class="cont">
+                <div id="missing">
+                    <label>Missing</label>
+                    <select data-i="0"></select>
+                    <select data-i="1"></select>
+                    <select data-i="2"></select>
+                </div>
+            </div>
+        </section>
+        <section id="show-page" style="display: none;">
+            <b>Forwards</b>
+            <div class="grid" id="o-forwards">
+                <span name="left"></span>
+                <span name="right"></span>
+                <span name="center"></span>
+            </div>
+            <b>Defense</b>
+            <div class="grid" id="o-defense">
+                <span name="left"></span>
+                <span name="right"></span>
+            </div>
+            <b>Goalie</b>
+            <div class="grid" id="o-goalie">
+                <span style="height: 1lh; margin-top: 0;"></span>
+            </div>
+            <div style="margin-top: 3em;">
+                <button onclick="back()">Back</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        const selectNames = ["goalie", "lw", "c", "rw", "ld", "rd", "missing"];
+        const forwardNames = ["lw", "rw", "c"];
+        const defenseNames = ["ld", "rd"];
+
+        const selects = [];
+        var playerOptions = [];
+        const roster = document.getElementById("roster");
+        const editPage = document.getElementById("edit-page");
+        const showPage = document.getElementById("show-page");
+
+        selectNames.forEach(i => {
+            document.getElementById(i).childNodes.forEach(c => {
+                if (c.nodeName === "SELECT") selects.push(c);
+            });
+        });
+
+        loadData();
+
+        function getSelectId(s) {
+            return s.parentElement.id + s.dataset.i;
+        }
+
+        function change(event) {
+            const val = event.target.value;
+            const old = event.target.name;
+            event.target.name = val;
+
+            if (old !== "") addPlayer(old, event.target);
+            if (val !== "") removePlayer(val);
+            localStorage.setItem(getSelectId(event.target), val);
+        }
+
+        function addPlayer(player, skip) {
+            playerOptions.push(player);
+            selects.forEach(i => {
+                if (i.name !== player && i !== skip)
+                    addChild(i, "option", player);
+            });
+            addChild(roster, "li", player);
+        }
+
+        function removePlayer(player) {
+            playerOptions = playerOptions.filter(v => v !== player);
+            selects.forEach(i => {
+                if (i.name !== player)
+                    removeChild(i, "OPTION", player);
+            });
+            removeChild(roster, "LI", player);
+        }
+
+        function removeChild(parent, type, value) {
+            const e = findChild(parent, type, value);
+            if (e)
+                parent.removeChild(e);
+        }
+
+        function addChild(parent, type, value) {
+            const elm = document.createElement(type);
+            elm.innerText = value;
+            parent.appendChild(elm);
+        }
+
+        function findChild(parent, type, value) {
+            const it = parent.childNodes.values();
+            let result = it.next();
+            while (!result.done) {
+                if (result.value.nodeName === type && result.value.innerText === value)
+                    return result.value;
+                result = it.next();
+            }
+        }
+
+        function display() {
+            editPage.style.display = "none";
+            showPage.style.display = "block";
+
+            const forwardOutputs = Array.from(document.querySelectorAll("#o-forwards span"));
+            forwardNames.forEach((p, i) => {
+                const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
+                forwardOutputs[i].textContent = txt;
+            });
+
+            const defenseOutputs = Array.from(document.querySelectorAll("#o-defense span"));
+            defenseNames.forEach((p, i) => {
+                const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
+                defenseOutputs[i].textContent = txt;
+            });
+
+            const goalieOutput = document.querySelector("#o-goalie span");
+            const txt = document.querySelector(`#goalie select`).value;
+            goalieOutput.textContent = txt;
+        }
+
+        function back() {
+            editPage.style.display = "block";
+            showPage.style.display = "none";
+        }
+
+        function importPlayersFile(files) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent) {
+                var file = fileLoadedEvent.target.result;
+                if (!file) return;
+                const players = file.replaceAll("\r", "");
+                importPlayers(players);
+            };
+
+            fileReader.readAsText(files[0], "UTF-8");
+        }
+
+        function importPlayers(players) {
+            localStorage.setItem("players", players);
+
+            reset();
+        }
+
+        function loadData() {
+            reset();
+
+            selects.forEach(s => {
+                const player = localStorage.getItem(getSelectId(s));
+                if (player === null) return;
+                s.value = player;
+                s.name = player;
+                removePlayer(player);
+            });
+        }
+
+        function reset() {
+            const playersStoreRaw = localStorage.getItem("players");
+            const playersStore = playersStoreRaw ? playersStoreRaw.split("\n") : [];
+            playerOptions = ["", ...playersStore];
+            selects.forEach(i => i.textContent = '');
+            roster.textContent = '';
+
+            if (!playersStore.length) return;
+
+            playersStore.forEach(p => {
+                const elm = document.createElement("li");
+                elm.innerText = p;
+                roster.appendChild(elm);
+            });
+
+            selects.forEach(i => {
+                i.addEventListener("change", change);
+                i.name = "";
+                playerOptions.forEach(p => {
+                    const elm = document.createElement("option");
+                    elm.innerText = p;
+                    i.appendChild(elm);
+                });
+            });
+        }
+
+        function clearPos() {
+            selects.forEach(s => localStorage.removeItem(getSelectId(s)));
+        }
+    </script>
+</body>
+
+</html>

@@ -5,19 +5,24 @@
       {
         "src": "/hlp/imgs/puck.svg",
         "type": "image/svg+xml",
-        "sizes": "150x150"
+        "sizes": "150x150",
+        "purpose": "any"
       },
       {
         "src": "/hlp/imgs/puck192.png",
         "type": "image/png",
-        "sizes": "192x192"
+        "sizes": "192x192",
+        "purpose": "any"
       },
       {
         "src": "/hlp/imgs/puck512.png",
         "type": "image/png",
-        "sizes": "512x512"
+        "sizes": "512x512",
+        "purpose": "any"
       }
     ],
+    "lang": "en",
+    "orientation": "natural",
     "start_url": "/hlp",
     "background_color": "#8676c0",
     "display": "standalone",

@@ -220,6 +220,10 @@
         </section>
     </main>
     <script>
+        if (typeof navigator.serviceWorker !== 'undefined')
+            navigator.serviceWorker.register('sw.js');
+    </script>
+    <script>
         const selectNames = ["goalie", "lw", "c", "rw", "ld", "rd", "missing"];
         const forwardNames = ["lw", "rw", "c"];
         const defenseNames = ["ld", "rd"];

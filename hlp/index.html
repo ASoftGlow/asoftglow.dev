@@ -100,12 +100,6 @@
             margin-right: 12px;
         }
 
-        #file {
-            position: absolute;
-            left: 0;
-            height: 24px;
-        }
-
         b {
             margin: 1em 0 0.5em;
             display: block;
@@ -172,14 +166,10 @@
                     <select data-i="1"></select>
                     <select data-i="2"></select>
                     <div class="control">
-                        <div style="position: relative; margin-bottom: 24px;">
-                            <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Load players from text file, one per line:</label>
-                            <input id="file" type="file" onchange="importPlayersFile(this.files)" accept=".txt">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; width: 100%;">
-                            <button onclick="display()">Display</button>
-                            <button onclick="reset();clearPos();">Reset</button>
-                        </div>
+                        <button onclick="display()">Display</button>
+                        <hr style="width: 90%;">
+                        <button onclick="addPlayerClick()">Add player</button>
+                        <button onclick="removePlayerClick()">Remove player</button>
                     </div>
                 </div>
                 <div id="rd">
@@ -187,6 +177,14 @@
                     <select data-i="0"></select>
                     <select data-i="1"></select>
                     <select data-i="2"></select>
+                    <div class="control">
+                        <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Import players from text file, one per line:</label>
+                        <input style="width: 100%;" type="file" onchange="importPlayersFile(this.files)" accept=".txt">
+                        <div style="display: flex; justify-content: space-between; gap: 0.5em">
+                            <button onclick="reset();clearPos();">Reset</button>
+                            <button onclick="removeAll()">Delete all</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="cont">
@@ -256,6 +254,44 @@
             localStorage.setItem(getSelectId(event.target), val);
         }
 
+        function addPlayerClick() {
+            let player = prompt("Enter player to add:");
+            if (player && (player = player.trim())) {
+                const players = localStorage.getItem("players");
+                if (players) {
+                    localStorage.setItem("players", players + "\n" + player);
+                    addPlayer(player);
+                }
+                else {
+                    localStorage.setItem("players", player);
+                    reset();
+                }
+            }
+        }
+
+        function removePlayerClick() {
+            let player = prompt("Enter player to remove:");
+            if (player && (player = player.trim())) {
+                let players = localStorage.getItem("players");
+                if (players) {
+                    const newPlayers = players.split("\n").filter(p => p !== player);
+                    if (newPlayers.length) {
+                        localStorage.setItem("players", newPlayers.join("\n"));
+                    }
+                    else {
+                        localStorage.removeItem("players");
+                    }
+                }
+                removePlayer(player, false);
+            }
+        }
+
+        function removeAll() {
+            localStorage.removeItem("players");
+            reset();
+            clearPos();
+        }
+
         function addPlayer(player, skip) {
             playerOptions.push(player);
             selects.forEach(i => {
@@ -265,11 +301,15 @@
             addChild(roster, "li", player);
         }
 
-        function removePlayer(player) {
+        function removePlayer(player, skip = true) {
             playerOptions = playerOptions.filter(v => v !== player);
             selects.forEach(i => {
-                if (i.name !== player)
+                if (!skip || i.name !== player)
                     removeChild(i, "OPTION", player);
+                if (!skip) {
+                    i.name = "";
+                    localStorage.removeItem(getSelectId(i));
+                }
             });
             removeChild(roster, "LI", player);
         }
@@ -327,7 +367,8 @@
             fileReader.onload = function (fileLoadedEvent) {
                 var file = fileLoadedEvent.target.result;
                 if (!file) return;
-                const players = file.replaceAll("\r", "");
+                const playersTxt = file.replaceAll("\r", "");
+                const players = playersTxt.split("\n").map(p => p.trim());
                 importPlayers(players);
             };
 
@@ -335,7 +376,7 @@
         }
 
         function importPlayers(players) {
-            localStorage.setItem("players", players);
+            localStorage.setItem("players", players.join("\n"));
 
             reset();
         }

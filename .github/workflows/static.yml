@@ -37,15 +37,18 @@ jobs:
             scss/menyow.scss
             scss/styles.scss
             scss/website.scss
+            scss/terrain.scss
+            scss/hockey.scss
           destination: |
             css/index.css
             css/menyow.css
             css/styles.css
             css/website.css
+            css/terrain.css
+            css/hockey.css
           outputStyle: compressed
           sourceComments: false
           sourceMap: false
-      - run: ls
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -58,7 +61,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
   
     steps:
       - name: Checkout SCRA

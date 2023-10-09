@@ -53,6 +53,7 @@ h3,
 h5,
 h6 {
     font-family: theme.$title-font;
+    word-spacing: -0.5ch;
 }
 
 ::selection {
@@ -137,10 +138,6 @@ input[type="color"] {
     }
 }
 
-#hair {
-    position: fixed;
-}
-
 #home-link {
     position: fixed;
     left: 20px;
@@ -166,9 +163,12 @@ input[type="color"] {
     }
 }
 
-// summary::marker {
-//     content: '->';
-// }
-summary {
-    
+.product-link {
+    border: 1px solid var(--color-text);
+    padding: 0.5em;
+    display: inline-block;
+}
+
+p~p {
+    margin-top: 0;
 }

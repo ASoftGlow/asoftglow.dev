@@ -363,6 +363,11 @@
         }
 
         function importPlayersFile(files) {
+            if (files[0].size > 1_000) {
+                console.log("File too large");
+                return;
+            }
+            
             var fileReader = new FileReader();
             fileReader.onload = function (fileLoadedEvent) {
                 var file = fileLoadedEvent.target.result;

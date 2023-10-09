@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+
+    <title>ASoftGlow.dev</title>
+    <meta name="author" content="ASoftGlow">
+    <meta name="creator" content="ASoftGlow">
+    <meta name="description" content="ASoftGlow's developer portfolio.">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />
+
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hockey.css">
+</head>
+
+<body>
+    <div class="col-cont">
+        <main>
+            <a id="home-link" href="/" title="Back">←</a>
+            <header>
+                <div>
+                    <h1>Hockey Line Picker</h1>
+                    <h3>App</h3>
+                    <a class="product-link" href="hlp">Link to product</a>
+                </div>
+                <div class="profile" id="icon" role="img"></div>
+            </header>
+
+            <p>A simple webapp for picking hockey lineups.</p>
+            <figure>
+                <img src="images/hockey/menu.png" width="250px">
+                <figcaption>Select screen</figcaption>
+            </figure>
+            <figure>
+                <img src="images/hockey/display.png" width="250px">
+                <figcaption>Display screen</figcaption>
+            </figure>
+            <section>
+                <h2>Features</h2>
+                <ul>
+                    <li>
+                        <h3>Import players from file</h3>
+                        <p>A text file with players seperated by newlines</p>
+                    </li>
+                    <li>
+                        <h3>Add/remove players</h3>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Original project</h2>
+                <figure>
+                    <div class="gallery">
+                        <img src="images/hockey/old_menu.png">
+                        <img src="images/hockey/old_display.png">
+                    </div>
+                    <figcaption>Select and display screens of Code.org project</figcaption>
+                </figure>
+                <p>
+                    Once during 2022, I helped my school comp sci teacher fix an app he had start on
+                    <a href="https://www.code.org">Code.org</a> to help pick his hockey lineups (he was a hockey coach).
+                    He had already had the design set, but the code wasn't working as intended.
+                </p>
+                <p>
+                    Its function is simple: on the right is a list of available players.
+                    Groups of selects represent the various positions (see above left figure). Select a player and it's removed from the roster list.
+                    Click the "Update" button to display the positions in a cleaner format so a screenshot can be taken and sent to the team (see above right figure).
+                </p>
+            </section>
+            <section>
+                <h2>Revamped Project</h2>
+                <p>
+                    A year later, I had completely forgotten about it until he told me, to my surpise, he was still using it.
+                    He also said there was a bug when replacing a player that already been selected.<br>
+                    I figured I might as while rewrite it not in Code.org, but in vanilla HTML and JS, which I hadn't done previously.<br>
+                    It wasn't too difficult and took about 3 days.
+                </p>
+                <h3>Dynamic players</h3>
+                <p>
+                    In the original project, players were hard coded. That's not ideal.
+                    I added an add and remove player button to rectify that. Additionally, I gave the option to import players from a newline seperated text file, as to make it
+                    easier to add a bunch of players.
+                    Unlike the original, the players and their selected positions are saved between refreshes using <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a>.
+                </p>
+                <h3>PWA</h3>
+                <p>
+                    I also explored making it a compatible
+                    <a href="https://web.dev/learn/pwa/">Progressive Web App</a>.
+                </p>
+                <figure>
+                    <img src="images/hockey/display.png" width="250px">
+                    <figcaption>New display screen</figcaption>
+                </figure>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2023 ASoftGlow</p>
+        <a href="mailto:me@asoftglow.dev" style="display: flex;column-gap: 1ch;">
+            <svg class="icon" id="email" width="1em" viewBox="1.25 -0.75 17.5 12.5">
+                <g stroke="currentColor" stroke-width="1.1" fill="none">
+                    <path d="M18,0 L10,8 L2,0 Z M2,0 L2,11 L18,11 L18,0 Z"></path>
+                </g>
+            </svg>
+            Contact
+        </a>
+        <p>This site is WIP</p>
+    </footer>
+</body>
+
+</html>

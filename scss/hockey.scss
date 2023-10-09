@@ -1,0 +1,52 @@
+#icon {
+    background-image: url("../hlp/imgs/puck.svg");
+    width: 80px;
+    height: 80px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.gallery img {
+    width: 150px;
+}
+
+figcaption {
+    margin-top: 0.5em;
+}
+
+@media screen and (min-width: 1000px) {
+    .inline-fig {
+        position: absolute;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+
+        .gallery {
+            width: 250px;
+        }
+    }
+}
+
+.col-cont {
+    display: grid;
+    justify-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+main {
+    margin: initial;
+    width: initial;
+}

@@ -1,8 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     let accent = document.getElementById("accent-color");
-    accent.value = parseRgb(window.getComputedStyle(document.body).backgroundColor);
-    accent.addEventListener("change", (event) =>
-        document.documentElement.style.setProperty("--color-accent", event.target.value)
+    const color = sessionStorage.getItem("color");
+    if (color) {
+        document.documentElement.style.setProperty("--color-accent", color);
+        accent.value = color;
+    }
+    else
+        accent.value = parseRgb(window.getComputedStyle(document.body).backgroundColor);
+    accent.addEventListener("change", (event) => {
+        document.documentElement.style.setProperty("--color-accent", event.target.value);
+        sessionStorage.setItem("color", event.target.value);
+    }
     );
 });
 

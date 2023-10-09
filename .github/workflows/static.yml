@@ -109,7 +109,6 @@ jobs:
         with:
           name: scra
           path: scra
-      - run: ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

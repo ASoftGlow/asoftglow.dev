@@ -46,11 +46,9 @@ label {
     border: 1px solid;
     text-align: initial;
     height: 220px;
-    margin: 0;
-    list-style: none;
-    padding-inline-start: 1em;
     padding: 0.5em;
     overflow: auto;
+    white-space: break-spaces;
 }
 
 #rost-cont {

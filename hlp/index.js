@@ -104,51 +104,46 @@ function addPlayer(player, skip) {
     playerOptions.push(player);
     selects.forEach(i => {
         if (i.name !== player && i !== skip)
-            addChild(i, "option", player);
+            addOption(i, player);
     });
-    addChild(roster, "li", player);
+    roster.append(player + "\n");
 }
 
 function removePlayer(player, skip = true) {
     playerOptions = playerOptions.filter(v => v !== player);
     selects.forEach(i => {
         if (!skip || i.name !== player)
-            removeChild(i, "OPTION", player);
+            removeChild(i, player);
         if (!skip) {
             i.name = "";
             localStorage.removeItem(getSelectId(i));
         }
     });
-    removeChild(roster, "LI", player);
+    roster.textContent = roster.textContent.split("\n").filter(p => p !== player).join("\n");
 }
 
-function removeChild(parent, type, value) {
-    const e = findChild(parent, type, value);
+function removeChild(parent, value) {
+    const e = findChild(parent, value);
     if (e)
         parent.removeChild(e);
 }
 
-function addChild(parent, type, value) {
-    const elm = document.createElement(type);
-    elm.innerText = value;
+function addOption(parent, value) {
+    const elm = document.createElement("option");
+    elm.text = value;
     parent.appendChild(elm);
 }
 
-function findChild(parent, type, value) {
-    document.body.querySelectorAll(type);
-    const it = parent.childNodes.values();
-    let result = it.next();
-    while (!result.done) {
-        if (result.value.nodeName === type && result.value.innerText === value)
-            return result.value;
-        result = it.next();
+function findChild(parent, value) {
+    for (let i = 0; i < parent.children.length; i++) {
+        if (parent.children[i].text === value)
+            return parent.children[i];
     }
 }
 
 function display() {
     if (!edited) return;
     edited = false;
-    console.log("display")
     const forwardOutputs = Array.from(document.querySelectorAll("#o-forwards span"));
     forwardNames.forEach((p, i) => {
         const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
@@ -213,19 +208,13 @@ function reset() {
     if (!playersStore.length) return;
 
     playersStore.forEach(p => {
-        const elm = document.createElement("li");
-        elm.innerText = p;
-        roster.appendChild(elm);
+        roster.append(p + "\n");
     });
 
     selects.forEach(i => {
         i.addEventListener("change", change);
         i.name = "";
-        playerOptions.forEach(p => {
-            const elm = document.createElement("option");
-            elm.innerText = p;
-            i.appendChild(elm);
-        });
+        playerOptions.forEach(p => addOption(i, p));
     });
 }
 

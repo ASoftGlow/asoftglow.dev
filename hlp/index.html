@@ -7,150 +7,39 @@
     <meta name="color-scheme" content="light dark">
     <link rel="manifest" href="index.webmanifest">
     <link rel="icon" href="imgs/puck.svg">
-    <style>
-        main {
-            margin-left: auto;
-            margin-right: auto;
-            min-width: 400px;
-            max-width: 500px;
-            padding: 8px 4px;
-            border: 1px solid;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-        }
-
-        select {
-            width: 100%;
-            max-width: 150px;
-            height: 2lh;
-            margin-bottom: 6px;
-            border-radius: 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 2px;
-            font-weight: bold;
-        }
-
-        .cont {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-        }
-
-        .cont>* {
-            width: 100%;
-        }
-
-        .cont>div {
-            margin-top: 1em;
-        }
-
-        #roster {
-            background-color: #ff000012;
-            border: 1px solid;
-            text-align: initial;
-            height: 220px;
-            margin: 0;
-            list-style: none;
-            padding-inline-start: 1em;
-            padding: 0.5em;
-            overflow: auto;
-        }
-
-        #rost-cont {
-            margin: 0 8px;
-        }
-
-        #rost-cont p {
-            font-weight: bold;
-            margin-bottom: 2px;
-            margin-top: 0;
-        }
-
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5em 1em;
-            justify-content: center;
-        }
-
-        .grid span {
-            border: 1px solid;
-            width: 150px;
-            height: 3lh;
-            padding: 0.5em 0.25em;
-            white-space: pre-wrap;
-            position: relative;
-            margin-top: calc(0.5em + 6px);
-        }
-
-        .grid span::before {
-            content: attr(name);
-            font-size: small;
-            position: absolute;
-            top: calc(-1.5em - 2px);
-            color: var(--color-sec);
-            left: 0;
-            right: 0;
-        }
-
-        #missing select:not(:last-child) {
-            margin-right: 12px;
-        }
-
-        b {
-            margin: 1em 0 0.5em;
-            display: block;
-        }
-
-        .control {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 0.5em 1em;
-            margin-top: 1em;
-            margin-left: 8px;
-        }
-
-        :root {
-            --color-sec: #7a7a7a;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-sec: #959595;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <nav>
+        <button disabled>Positions</button>
+        <button>Display</button>
+        <!-- <button>Practice</button> -->
+    </nav>
     <main>
-        <section id="edit-page">
+        <section id="edit-page" style="display: block;">
             <div id="goalie">
                 <label>Goalie</label>
-                <select data-i=""></select>
+                <select></select>
             </div>
             <div class="cont">
                 <div id="lw">
                     <label>LW</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                 </div>
                 <div id="c">
                     <label>C</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                 </div>
                 <div id="rw">
                     <label>RW</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                 </div>
             </div>
             <div class="cont">
@@ -162,41 +51,41 @@
                 </div>
                 <div id="ld">
                     <label>LD</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                     <div class="control">
-                        <button onclick="display()">Display</button>
-                        <hr style="width: 90%;">
                         <button onclick="addPlayerClick()">Add player</button>
                         <button onclick="removePlayerClick()">Remove player</button>
+                        <hr width="100%">
+                        <div class="control-vert">
+                            <button onclick="reset();clearPos();">Reset</button>
+                            <button onclick="removeAll()">Delete all</button>
+                        </div>
                     </div>
                 </div>
                 <div id="rd">
                     <label>RD</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                     <div class="control">
                         <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Import players from text file, one per line:</label>
                         <input style="width: 100%;" type="file" onchange="importPlayersFile(this.files)" accept=".txt">
-                        <div style="display: flex; justify-content: space-between; gap: 0.5em">
-                            <button onclick="reset();clearPos();">Reset</button>
-                            <button onclick="removeAll()">Delete all</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="cont">
                 <div id="missing">
                     <label>Missing</label>
-                    <select data-i="0"></select>
-                    <select data-i="1"></select>
-                    <select data-i="2"></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
                 </div>
             </div>
         </section>
-        <section id="show-page" style="display: none;">
+        <section id="display-page">
             <b>Forwards</b>
             <div class="grid" id="o-forwards">
                 <span name="left"></span>
@@ -210,10 +99,23 @@
             </div>
             <b>Goalie</b>
             <div class="grid" id="o-goalie">
-                <span style="height: 1lh; margin-top: 0;"></span>
+                <span style="height: 1lh; margin-top: 0; margin-bottom: 1em;"></span>
             </div>
-            <div style="margin-top: 3em;">
-                <button onclick="back()">Back</button>
+        </section>
+        <section id="practice-page">
+            <div class="cont">
+                <div>
+                    <label>Team 1</label>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                </div>
+                <div>
+                    <label>Team 2</label>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                </div>
             </div>
         </section>
     </main>
@@ -221,214 +123,7 @@
         if (typeof navigator.serviceWorker !== 'undefined')
             navigator.serviceWorker.register('sw.js');
     </script>
-    <script>
-        const selectNames = ["goalie", "lw", "c", "rw", "ld", "rd", "missing"];
-        const forwardNames = ["lw", "rw", "c"];
-        const defenseNames = ["ld", "rd"];
-
-        const selects = [];
-        var playerOptions = [];
-        const roster = document.getElementById("roster");
-        const editPage = document.getElementById("edit-page");
-        const showPage = document.getElementById("show-page");
-
-        selectNames.forEach(i => {
-            document.getElementById(i).childNodes.forEach(c => {
-                if (c.nodeName === "SELECT") selects.push(c);
-            });
-        });
-
-        loadData();
-
-        function getSelectId(s) {
-            return s.parentElement.id + s.dataset.i;
-        }
-
-        function change(event) {
-            const val = event.target.value;
-            const old = event.target.name;
-            event.target.name = val;
-
-            if (old !== "") addPlayer(old, event.target);
-            if (val !== "") removePlayer(val);
-            localStorage.setItem(getSelectId(event.target), val);
-        }
-
-        function addPlayerClick() {
-            let player = prompt("Enter player to add:");
-            if (player && (player = player.trim())) {
-                const players = localStorage.getItem("players");
-                if (players) {
-                    localStorage.setItem("players", players + "\n" + player);
-                    addPlayer(player);
-                }
-                else {
-                    localStorage.setItem("players", player);
-                    reset();
-                }
-            }
-        }
-
-        function removePlayerClick() {
-            let player = prompt("Enter player to remove:");
-            if (player && (player = player.trim())) {
-                let players = localStorage.getItem("players");
-                if (players) {
-                    const newPlayers = players.split("\n").filter(p => p !== player);
-                    if (newPlayers.length) {
-                        localStorage.setItem("players", newPlayers.join("\n"));
-                    }
-                    else {
-                        localStorage.removeItem("players");
-                    }
-                }
-                removePlayer(player, false);
-            }
-        }
-
-        function removeAll() {
-            localStorage.removeItem("players");
-            reset();
-            clearPos();
-        }
-
-        function addPlayer(player, skip) {
-            playerOptions.push(player);
-            selects.forEach(i => {
-                if (i.name !== player && i !== skip)
-                    addChild(i, "option", player);
-            });
-            addChild(roster, "li", player);
-        }
-
-        function removePlayer(player, skip = true) {
-            playerOptions = playerOptions.filter(v => v !== player);
-            selects.forEach(i => {
-                if (!skip || i.name !== player)
-                    removeChild(i, "OPTION", player);
-                if (!skip) {
-                    i.name = "";
-                    localStorage.removeItem(getSelectId(i));
-                }
-            });
-            removeChild(roster, "LI", player);
-        }
-
-        function removeChild(parent, type, value) {
-            const e = findChild(parent, type, value);
-            if (e)
-                parent.removeChild(e);
-        }
-
-        function addChild(parent, type, value) {
-            const elm = document.createElement(type);
-            elm.innerText = value;
-            parent.appendChild(elm);
-        }
-
-        function findChild(parent, type, value) {
-            const it = parent.childNodes.values();
-            let result = it.next();
-            while (!result.done) {
-                if (result.value.nodeName === type && result.value.innerText === value)
-                    return result.value;
-                result = it.next();
-            }
-        }
-
-        function display() {
-            editPage.style.display = "none";
-            showPage.style.display = "block";
-
-            const forwardOutputs = Array.from(document.querySelectorAll("#o-forwards span"));
-            forwardNames.forEach((p, i) => {
-                const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
-                forwardOutputs[i].textContent = txt;
-            });
-
-            const defenseOutputs = Array.from(document.querySelectorAll("#o-defense span"));
-            defenseNames.forEach((p, i) => {
-                const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
-                defenseOutputs[i].textContent = txt;
-            });
-
-            const goalieOutput = document.querySelector("#o-goalie span");
-            const txt = document.querySelector(`#goalie select`).value;
-            goalieOutput.textContent = txt;
-        }
-
-        function back() {
-            editPage.style.display = "block";
-            showPage.style.display = "none";
-        }
-
-        function importPlayersFile(files) {
-            if (files[0].size > 1_000) {
-                console.log("File too large");
-                return;
-            }
-            
-            var fileReader = new FileReader();
-            fileReader.onload = function (fileLoadedEvent) {
-                var file = fileLoadedEvent.target.result;
-                if (!file) return;
-                const playersTxt = file.replaceAll("\r", "");
-                const players = playersTxt.split("\n").map(p => p.trim());
-                importPlayers(players);
-            };
-
-            fileReader.readAsText(files[0], "UTF-8");
-        }
-
-        function importPlayers(players) {
-            localStorage.setItem("players", players.join("\n"));
-
-            reset();
-            clearPos();
-        }
-
-        function loadData() {
-            reset();
-
-            selects.forEach(s => {
-                const player = localStorage.getItem(getSelectId(s));
-                if (player === null) return;
-                s.value = player;
-                s.name = player;
-                removePlayer(player);
-            });
-        }
-
-        function reset() {
-            const playersStoreRaw = localStorage.getItem("players");
-            const playersStore = playersStoreRaw ? playersStoreRaw.split("\n") : [];
-            playerOptions = ["", ...playersStore];
-            selects.forEach(i => i.textContent = '');
-            roster.textContent = '';
-
-            if (!playersStore.length) return;
-
-            playersStore.forEach(p => {
-                const elm = document.createElement("li");
-                elm.innerText = p;
-                roster.appendChild(elm);
-            });
-
-            selects.forEach(i => {
-                i.addEventListener("change", change);
-                i.name = "";
-                playerOptions.forEach(p => {
-                    const elm = document.createElement("option");
-                    elm.innerText = p;
-                    i.appendChild(elm);
-                });
-            });
-        }
-
-        function clearPos() {
-            selects.forEach(s => localStorage.removeItem(getSelectId(s)));
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>

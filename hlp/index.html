@@ -16,7 +16,7 @@
     <nav>
         <button disabled>Positions</button>
         <button>Display</button>
-        <!-- <button>Practice</button> -->
+        <a href="practice.html"><button>Practice</button></a>
     </nav>
     <main>
         <section id="edit-page" style="display: block;">
@@ -57,12 +57,12 @@
                     <select></select>
                     <select></select>
                     <div class="control">
-                        <button onclick="addPlayerClick()">Add player</button>
-                        <button onclick="removePlayerClick()">Remove player</button>
+                        <button id="add-btn">Add player</button>
+                        <button id="remove-btn">Remove player</button>
                         <hr width="100%">
                         <div class="control-vert">
-                            <button onclick="reset();clearPos();">Reset</button>
-                            <button onclick="removeAll()">Delete all</button>
+                            <button id="reset-btn">Reset</button>
+                            <button id="remove-all-btn">Delete all</button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     <select></select>
                     <div class="control">
                         <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Import players from text file, one per line:</label>
-                        <input style="width: 100%;" type="file" onchange="importPlayersFile(this.files)" accept=".txt">
+                        <input style="width: 100%;" type="file" id="import-input" accept=".txt">
 
                     </div>
                 </div>
@@ -104,28 +104,13 @@
                 <span style="height: 1lh; margin-top: 0; margin-bottom: 1em;"></span>
             </div>
         </section>
-        <section id="practice-page">
-            <div class="cont">
-                <div>
-                    <label>Team 1</label>
-                    <select></select>
-                    <select></select>
-                    <select></select>
-                </div>
-                <div>
-                    <label>Team 2</label>
-                    <select></select>
-                    <select></select>
-                    <select></select>
-                </div>
-            </div>
-        </section>
+        <section id="loading-page">Loading...</section>
     </main>
     <script>
         if (typeof navigator.serviceWorker !== 'undefined')
             navigator.serviceWorker.register('sw.js');
     </script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>

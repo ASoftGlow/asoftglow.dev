@@ -1,0 +1,5 @@
+.grid span {
+    margin-top: 0;
+    height: auto;
+    min-height: 1em;
+}

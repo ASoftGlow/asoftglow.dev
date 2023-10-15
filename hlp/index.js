@@ -1,3 +1,5 @@
+import { addOption, removeChild } from './util.js';
+
 const selectNames = ["goalie", "lw", "c", "rw", "ld", "rd", "missing"];
 const forwardNames = ["lw", "rw", "c"];
 const defenseNames = ["ld", "rd"];
@@ -6,7 +8,7 @@ const selects = [];
 var playerOptions = [];
 var page = 0;
 var edited = true;
-const pages = ["edit-page", "display-page"].map(p => document.getElementById(p));
+const pages = ["edit-page", "display-page", "loading-page"].map(p => document.getElementById(p));
 const roster = document.getElementById("roster");
 const nav = document.getElementsByTagName("nav")[0];
 
@@ -17,19 +19,18 @@ selectNames.forEach(name => {
         const s = cont.children[i];
         if (s.nodeName !== "SELECT" && --o) continue;
         s.setAttribute("data-i", i + o);
+        s.addEventListener("change", change);
         selects.push(s);
     }
 });
 
 for (let i = 0; i < nav.children.length; i++) {
-    const b = nav.children[i];
-    b.setAttribute("data-i", i);
-    b.addEventListener('click', e => {
+    nav.children[i].addEventListener('click', e => {
         // switch page
         nav.children[page].disabled = false;
         e.target.disabled = true;
 
-        showPage(Number.parseInt(e.target.dataset.i));
+        showPage(i);
         switch (page) {
             case 1:
                 display();
@@ -40,6 +41,12 @@ for (let i = 0; i < nav.children.length; i++) {
 
 showPage(0);
 loadData();
+
+document.getElementById("add-btn").addEventListener('click', addPlayerClick);
+document.getElementById("remove-btn").addEventListener('click', removePlayerClick);
+document.getElementById("reset-btn").addEventListener('click', () => { reset(); clearPos(); });
+document.getElementById("remove-all-btn").addEventListener('click', removeAll);
+document.getElementById("import-input").addEventListener('change', importPlayersFile);
 
 function showPage(newPage) {
     pages[page].style.display = "none";
@@ -106,7 +113,7 @@ function addPlayer(player, skip) {
         if (i.name !== player && i !== skip)
             addOption(i, player);
     });
-    roster.append(player + "\n");
+    roster.append("\n" + player);
 }
 
 function removePlayer(player, skip = true) {
@@ -120,25 +127,6 @@ function removePlayer(player, skip = true) {
         }
     });
     roster.textContent = roster.textContent.split("\n").filter(p => p !== player).join("\n");
-}
-
-function removeChild(parent, value) {
-    const e = findChild(parent, value);
-    if (e)
-        parent.removeChild(e);
-}
-
-function addOption(parent, value) {
-    const elm = document.createElement("option");
-    elm.text = value;
-    parent.appendChild(elm);
-}
-
-function findChild(parent, value) {
-    for (let i = 0; i < parent.children.length; i++) {
-        if (parent.children[i].text === value)
-            return parent.children[i];
-    }
 }
 
 function display() {
@@ -161,8 +149,9 @@ function display() {
     goalieOutput.textContent = txt;
 }
 
-function importPlayersFile(files) {
-    if (files[0].size > 1_000) {
+function importPlayersFile(e) {
+    const file = e.target.files[0];
+    if (file.size > 1_000) {
         console.log("File too large");
         return;
     }
@@ -176,7 +165,7 @@ function importPlayersFile(files) {
         importPlayers(players);
     };
 
-    fileReader.readAsText(files[0], "UTF-8");
+    fileReader.readAsText(file, "UTF-8");
 }
 
 function importPlayers(players) {
@@ -203,19 +192,13 @@ function reset() {
     const playersStore = playersStoreRaw ? playersStoreRaw.split("\n") : [];
     playerOptions = ["", ...playersStore];
     selects.forEach(i => i.textContent = '');
-    roster.textContent = '';
+    roster.textContent = playersStore.join("\n");
 
-    if (!playersStore.length) return;
-
-    playersStore.forEach(p => {
-        roster.append(p + "\n");
-    });
-
-    selects.forEach(i => {
-        i.addEventListener("change", change);
-        i.name = "";
-        playerOptions.forEach(p => addOption(i, p));
-    });
+    if (playersStore.length)
+        selects.forEach(i => {
+            i.name = "";
+            playerOptions.forEach(p => addOption(i, p));
+        });
 }
 
 function clearPos() {

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Line Picker</title>
+    <meta name="description" content="Simple tool for creating hockey lineups.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#8676c0">
+    <link rel="manifest" href="index.webmanifest">
+    <link rel="icon" href="imgs/puck.svg">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="practice.css">
+</head>
+
+<body>
+    <nav>
+        <a href="."><button>Positions</button></a>
+        <button>Display</button>
+        <button disabled>Practice</button>
+    </nav>
+    <main>
+        <section id="edit-page" style="display: block;">
+            <div class="cont">
+                <div>
+                    <div id="rost-cont">
+                        <p>Roster</p>
+                        <div id="roster" style="height: 335px;"></div>
+                    </div>
+                    <div class="control">
+                        <button id="reset-btn">Reset</button>
+                    </div>
+                </div>
+                <div id="team0">
+                    <label>Team 1</label>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <label class="nop">Color:</label>
+                    <input type="color">
+                </div>
+                <div id="team1">
+                    <label>Team 2</label>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <select></select>
+                    <label class="nop">Color:</label>
+                    <input type="color">
+                </div>
+            </div>
+        </section>
+        <section id="display-page">
+            <div class="grid" style="margin-bottom: 1em;">
+                <div>
+                    <b>Team 1</b>
+                    <span id="o-team0"></span>
+                </div>
+                <div>
+                    <b>Team 2</b>
+                    <span id="o-team1"></span>
+                </div>
+            </div>
+        </section>
+        <section id="loading-page">Loading...</section>
+    </main>
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined')
+            navigator.serviceWorker.register('sw.js');
+    </script>
+    <script type="module" src="practice.js"></script>
+</body>
+
+</html>

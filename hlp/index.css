@@ -5,8 +5,11 @@ main {
     max-width: 500px;
     padding: 8px 4px;
     border: 1px solid;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+}
+
+main, button, input, select {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 section {
@@ -21,7 +24,7 @@ select {
     border-radius: 0;
 }
 
-label {
+label:not(.nop) {
     display: block;
     margin-bottom: 2px;
     font-weight: bold;
@@ -69,6 +72,7 @@ label {
 }
 
 .grid span {
+    display: inline-block;
     border: 1px solid;
     width: 150px;
     height: 3lh;
@@ -128,4 +132,9 @@ nav {
     justify-content: center;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+nav>a>button {
+    text-decoration: underline;
+    cursor: pointer;
 }

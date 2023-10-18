@@ -73,8 +73,9 @@
                     <select></select>
                     <div class="control">
                         <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Import players from text file, one per line:</label>
-                        <input style="width: 100%;" type="file" id="import-input" accept=".txt">
-
+                        <input style="width: 100%;" type="file" id="import-input" accept=".txt" title="Import">
+                        <button id="export-btn">Export</button>
+                        <a id="export-input" download="players.txt" style="display: none;" aria-hidden="true"></a>
                     </div>
                 </div>
             </div>

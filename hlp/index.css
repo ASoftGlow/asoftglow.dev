@@ -138,3 +138,7 @@ nav>a>button {
     text-decoration: underline;
     cursor: pointer;
 }
+
+hr {
+    margin: 4px;
+}

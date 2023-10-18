@@ -47,6 +47,7 @@ document.getElementById("remove-btn").addEventListener('click', removePlayerClic
 document.getElementById("reset-btn").addEventListener('click', () => { reset(); clearPos(); });
 document.getElementById("remove-all-btn").addEventListener('click', removeAll);
 document.getElementById("import-input").addEventListener('change', importPlayersFile);
+document.getElementById("export-btn").addEventListener('click', exportPlayersFile);
 
 function showPage(newPage) {
     pages[page].style.display = "none";
@@ -173,6 +174,14 @@ function importPlayers(players) {
 
     reset();
     clearPos();
+}
+
+function exportPlayersFile() {
+    const players = localStorage.getItem("players");
+    const a = document.getElementById("export-input");
+    a.setAttribute("href", "data:text;charset=utf-8," + encodeURIComponent(players));
+    a.click();
+    a.removeAttribute("href");
 }
 
 function loadData() {

@@ -57,6 +57,7 @@ jobs:
           name: dev
           
   build-scra:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     needs: build-dev
     runs-on: ubuntu-latest
     environment:

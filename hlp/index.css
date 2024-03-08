@@ -1,15 +1,15 @@
 main {
     margin-left: auto;
     margin-right: auto;
-    min-width: 400px;
     max-width: 500px;
     padding: 8px 4px;
     border: 1px solid;
     text-align: center;
+    overflow: auto;
 }
 
 main, button, input, select {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, Tahoma, Verdana, sans-serif;
 }
 
 section {
@@ -34,6 +34,7 @@ label:not(.nop) {
     display: flex;
     justify-content: center;
     gap: 4px;
+    position: relative;
 }
 
 .cont>* {
@@ -52,6 +53,7 @@ label:not(.nop) {
     padding: 0.5em;
     overflow: auto;
     white-space: break-spaces;
+    max-width: 160px;
 }
 
 #rost-cont {
@@ -106,8 +108,7 @@ b {
     flex-direction: column;
     align-items: start;
     gap: 0.5em;
-    margin-top: 1em;
-    margin-left: 8px;
+    margin: 1em 8px 0 8px;
 }
 
 .control-vert {
@@ -135,10 +136,14 @@ nav {
 }
 
 nav>a>button {
-    text-decoration: underline;
-    cursor: pointer;
+    text-decoration: inherit;
+    cursor: inherit;
 }
 
 hr {
     margin: 4px;
+}
+
+#edit-page {
+    min-width: 374px;
 }

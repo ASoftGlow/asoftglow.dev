@@ -1,6 +1,5 @@
 main {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2em auto;
     max-width: 500px;
     padding: 8px 4px;
     border: 1px solid;
@@ -8,8 +7,16 @@ main {
     overflow: auto;
 }
 
-main, button, input, select {
+main, button, input, select, label, ::file-selector-button {
     font-family: system-ui, Tahoma, Verdana, sans-serif;
+}
+
+::file-selector-button {
+    font-size: initial;
+}
+
+input[type="file"] {
+    font-size: 0;
 }
 
 section {
@@ -19,9 +26,8 @@ section {
 select {
     width: 100%;
     max-width: 150px;
-    height: 2lh;
+    height: 1.8lh;
     margin-bottom: 6px;
-    border-radius: 0;
 }
 
 label:not(.nop) {
@@ -48,7 +54,6 @@ label:not(.nop) {
 #roster {
     background-color: #ff000012;
     border: 1px solid;
-    text-align: initial;
     height: 220px;
     padding: 0.5em;
     overflow: auto;
@@ -58,12 +63,6 @@ label:not(.nop) {
 
 #rost-cont {
     margin: 0 8px;
-}
-
-#rost-cont p {
-    font-weight: bold;
-    margin-bottom: 2px;
-    margin-top: 0;
 }
 
 .grid {
@@ -85,7 +84,8 @@ label:not(.nop) {
 }
 
 .grid span::before {
-    content: attr(name);
+    content: attr(aria-label);
+    content: attr(aria-label) / "";
     font-size: small;
     position: absolute;
     top: calc(-1.5em - 2px);
@@ -96,11 +96,6 @@ label:not(.nop) {
 
 #missing select:not(:last-child) {
     margin-right: 12px;
-}
-
-b {
-    margin: 1em 0 0.5em;
-    display: block;
 }
 
 .control {
@@ -145,5 +140,10 @@ hr {
 }
 
 #edit-page {
-    min-width: 374px;
+    min-width: 375px;
+}
+
+#display-page p {
+    margin-bottom: 0.5em;
+    font-weight: bold;
 }

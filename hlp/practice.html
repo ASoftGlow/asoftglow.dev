@@ -3,7 +3,7 @@
 
 <head>
     <title>Line Picker</title>
-    <meta name="description" content="Simple tool for creating hockey lineups.">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#8676c0">
@@ -24,8 +24,8 @@
             <div class="cont">
                 <div id="rost-cont-cont">
                     <div id="rost-cont">
-                        <p>Roster</p>
-                        <div id="roster" style="height: 335px;"></div>
+                        <label id="l-roster">Roster</label>
+                        <div role="list" aria-labelledby="l-roster" id="roster"></div>
                     </div>
                     <div class="control">
                         <button id="reset-btn">Reset</button>
@@ -44,7 +44,7 @@
                     <select></select>
                     <select></select>
                     <label class="nop">Color:</label>
-                    <input type="color">
+                    <input aria-label="Team 1 Color" type="color">
                 </div>
                 <div id="team1">
                     <label>Team 2</label>
@@ -59,18 +59,18 @@
                     <select></select>
                     <select></select>
                     <label class="nop">Color:</label>
-                    <input type="color">
+                    <input aria-label="Team 2 Color" type="color">
                 </div>
             </div>
         </section>
         <section id="display-page">
             <div class="grid" style="margin-bottom: 1em;">
                 <div>
-                    <b>Team 1</b>
+                    <p>Team 1</p>
                     <span id="o-team0"></span>
                 </div>
                 <div>
-                    <b>Team 2</b>
+                    <p>Team 2</p>
                     <span id="o-team1"></span>
                 </div>
             </div>

@@ -15,6 +15,10 @@
         left: 12px;
         width: calc(50% - 12px);
     }
+
+    #roster {
+        max-height: 80%;
+    }
 }
 
 #edit-page {

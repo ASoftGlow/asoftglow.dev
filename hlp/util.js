@@ -10,6 +10,12 @@ export function addOption(parent, value) {
     parent.appendChild(elm);
 }
 
+export function addBlankOption(parent) {
+    const elm = document.createElement("option");
+    elm.ariaLabel = "Blank";
+    parent.appendChild(elm);
+}
+
 function findChild(parent, value) {
     for (let i = 0; i < parent.children.length; i++) {
         if (parent.children[i].text === value)

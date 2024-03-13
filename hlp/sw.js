@@ -1,3 +1,4 @@
+const VERSION = "1.1.2";
 const CACHE_NAME = 'cache0';
 
 self.addEventListener('install', event => {

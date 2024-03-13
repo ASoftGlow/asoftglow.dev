@@ -1,4 +1,4 @@
-import { addOption, removeChild } from './util.js';
+import { addOption, addBlankOption, removeChild } from './util.js';
 
 const teams = 2;
 
@@ -12,20 +12,21 @@ const roster = document.getElementById("roster");
 const nav = document.getElementsByTagName("nav")[0];
 
 for (let t = 0; t < teams; t++) {
-    const cont = document.getElementById("team" + t);
-    for (let i = 0; i < cont.children.length; i++) {
-        const s = cont.children[i];
-        if (s.nodeName !== "SELECT") continue;
+    document.getElementById("team" + t).querySelectorAll("select").forEach((s, i) => {
         s.addEventListener("change", change);
+        s.ariaLabel = "Team " + t + " #" + (i + 1);
         selects.push(s);
-    }
+    });
 }
 
 for (let i = 0; i < nav.children.length; i++) {
     nav.children[i].addEventListener('click', e => {
+        if (!(e instanceof PopStateEvent))
+            history.pushState(i, "Bug 223190");
+
         // switch page
         nav.children[page].disabled = false;
-        e.target.disabled = true;
+        nav.children[i].disabled = true;
 
         showPage(i);
         switch (page) {
@@ -43,6 +44,8 @@ for (let t = 0; t < teams; t++) {
     colors.push(c);
 }
 
+window.addEventListener("popstate", ev => nav.children[ev.state ?? 0].onclick(ev));
+
 showPage(2);
 reset();
 
@@ -50,7 +53,7 @@ document.getElementById("reset-btn").addEventListener('click', reset);
 
 function showPage(newPage) {
     pages[page].style.display = "none";
-    pages[newPage].style.display = "block";
+    pages[newPage].style.display = "unset";
     page = newPage;
 }
 
@@ -91,12 +94,11 @@ function display() {
         output.style.color = colors[t].value;
 
         if (!edited) continue;
-        const inputs = document.getElementById("team" + t).getElementsByTagName("select");
         const players = [];
-        for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i].value)
-                players.push(inputs[i].value);
-        }
+        document.getElementById("team" + t).querySelectorAll("select").forEach(s => {
+            if (s.value)
+                players.push(s.value);
+        });
         output.textContent = players.join("\n");
     }
     if (edited) edited = false;
@@ -104,14 +106,14 @@ function display() {
 
 export function reset() {
     const playersStoreRaw = localStorage.getItem("players");
-    const playersStore = playersStoreRaw ? playersStoreRaw.split("\n") : [];
-    playerOptions = ["", ...playersStore];
+    playerOptions = playersStoreRaw ? playersStoreRaw.split("\n") : [];
     selects.forEach(i => i.textContent = '');
-    roster.textContent = playersStore.join("\n");
+    roster.textContent = playerOptions.join("\n");
 
-    if (playersStore.length)
+    if (playerOptions.length)
         selects.forEach(i => {
             i.name = "";
+            addBlankOption(i);
             playerOptions.forEach(p => addOption(i, p));
         });
 }

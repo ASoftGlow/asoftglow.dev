@@ -3,7 +3,16 @@
 
 <head>
     <title>Line Picker</title>
+    <meta property="og:title" content="Line Picker App">
+    <meta property="og:image" content="imgs/puck.svg">
+    <meta property="og:image:alt" content="A gray hockey pock">
+    <meta property="og:description" content="Simple tool for creating hockey lineups.">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="author" content="ASoftGlow">
+    <meta name="creator" content="ASoftGlow">
     <meta name="description" content="Simple tool for creating hockey lineups.">
+    <meta name="keywords" content="hockey,app,free,picker,chooser,creator">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#8676c0">
@@ -20,24 +29,24 @@
     </nav>
     <main>
         <section id="edit-page" style="display: block;">
-            <div id="goalie">
+            <div id="goalie" title="Goalie">
                 <label>Goalie</label>
                 <select></select>
             </div>
             <div class="cont">
-                <div id="lw">
+                <div id="lw" title="Left Winger">
                     <label>LW</label>
                     <select></select>
                     <select></select>
                     <select></select>
                 </div>
-                <div id="c">
+                <div id="c" title="Center">
                     <label>C</label>
                     <select></select>
                     <select></select>
                     <select></select>
                 </div>
-                <div id="rw">
+                <div id="rw" title="Right Winger">
                     <label>RW</label>
                     <select></select>
                     <select></select>
@@ -47,15 +56,17 @@
             <div class="cont">
                 <div>
                     <div id="rost-cont">
-                        <p>Roster</p>
-                        <div id="roster"></div>
+                        <label id="l-roster">Roster</label>
+                        <div role="list" aria-labelledby="l-roster" id="roster"></div>
                     </div>
                 </div>
-                <div id="ld">
-                    <label>LD</label>
-                    <select></select>
-                    <select></select>
-                    <select></select>
+                <div>
+                    <div id="ld" title="Left Defense">
+                        <label>LD</label>
+                        <select></select>
+                        <select></select>
+                        <select></select>
+                    </div>
                     <div class="control">
                         <button id="add-btn">Add player</button>
                         <button id="remove-btn">Remove player</button>
@@ -66,21 +77,23 @@
                         </div>
                     </div>
                 </div>
-                <div id="rd">
-                    <label>RD</label>
-                    <select></select>
-                    <select></select>
-                    <select></select>
+                <div>
+                    <div id="rd" title="Right Defense">
+                        <label>RD</label>
+                        <select></select>
+                        <select></select>
+                        <select></select>
+                    </div>
                     <div class="control">
                         <label style="font-weight: initial; text-align: initial; color: var(--color-sec);">Import players from text file, one per line:</label>
-                        <input style="width: 100%;" type="file" id="import-input" accept=".txt" title="Import">
+                        <input type="file" id="import-input" accept=".txt" title="Import">
                         <button id="export-btn">Export</button>
                         <a id="export-input" download="players.txt" style="display: none;" aria-hidden="true"></a>
                     </div>
                 </div>
             </div>
             <div class="cont">
-                <div id="missing">
+                <div id="missing" title="Missing">
                     <label>Missing</label>
                     <select></select>
                     <select></select>
@@ -89,20 +102,20 @@
             </div>
         </section>
         <section id="display-page">
-            <b>Forwards</b>
-            <div class="grid" id="o-forwards">
-                <span name="left"></span>
-                <span name="right"></span>
-                <span name="center"></span>
+            <p id="l-forwards">Forwards</p>
+            <div class="grid" id="o-forwards" aria-labelledby="l-forwards">
+                <span role="list" aria-label="left"></span>
+                <span role="list" aria-label="right"></span>
+                <span role="list" aria-label="center"></span>
             </div>
-            <b>Defense</b>
-            <div class="grid" id="o-defense">
-                <span name="left"></span>
-                <span name="right"></span>
+            <p id="l-defense">Defense</p>
+            <div class="grid" id="o-defense" aria-labelledby="l-defense">
+                <span role="list" aria-label="left"></span>
+                <span role="list" aria-label="right"></span>
             </div>
-            <b>Goalie</b>
-            <div class="grid" id="o-goalie">
-                <span style="height: 1lh; margin-top: 0; margin-bottom: 1em;"></span>
+            <p id="l-goalie">Goalie</p>
+            <div class="grid" id="o-goalie" aria-labelledby="l-goalie">
+                <span role="list" style="height: 1lh; margin-top: 0; margin-bottom: 1em;"></span>
             </div>
         </section>
         <section id="loading-page">Loading...</section>

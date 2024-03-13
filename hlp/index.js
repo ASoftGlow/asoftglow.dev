@@ -1,4 +1,4 @@
-import { addOption, removeChild } from './util.js';
+import { addOption, addBlankOption, removeChild } from './util.js';
 
 const selectNames = ["goalie", "lw", "c", "rw", "ld", "rd", "missing"];
 const forwardNames = ["lw", "rw", "c"];
@@ -14,21 +14,28 @@ const nav = document.getElementsByTagName("nav")[0];
 
 selectNames.forEach(name => {
     const cont = document.getElementById(name);
-    let o = 0;
-    for (let i = 0; i < cont.children.length; i++) {
-        const s = cont.children[i];
-        if (s.nodeName !== "SELECT" && --o) continue;
-        s.setAttribute("data-i", i + o);
+    const sels = cont.querySelectorAll("select");
+    sels.forEach((s, i) => {
+        s.dataset.i = i;
+        if (sels.length === 1) {
+            s.id = cont.id + "-select";
+            cont.querySelector("label").setAttribute("for", s.id);
+        }
+        else
+            s.ariaLabel = cont.title + " " + (i + 1);
         s.addEventListener("change", change);
         selects.push(s);
-    }
+    });
 });
 
 for (let i = 0; i < nav.children.length; i++) {
-    nav.children[i].addEventListener('click', e => {
+    nav.children[i].onclick = e => {
+        if (!(e instanceof PopStateEvent))
+            history.pushState(i, "Bug 223190");
+
         // switch page
         nav.children[page].disabled = false;
-        e.target.disabled = true;
+        nav.children[i].disabled = true;
 
         showPage(i);
         switch (page) {
@@ -36,8 +43,10 @@ for (let i = 0; i < nav.children.length; i++) {
                 display();
                 break;
         }
-    });
+    };
 }
+
+window.addEventListener("popstate", ev => nav.children[ev.state ?? 0].onclick(ev));
 
 showPage(0);
 loadData();
@@ -51,7 +60,7 @@ document.getElementById("export-btn").addEventListener('click', exportPlayersFil
 
 function showPage(newPage) {
     pages[page].style.display = "none";
-    pages[newPage].style.display = "block";
+    pages[newPage].style.display = "unset";
     page = newPage;
 }
 
@@ -134,20 +143,16 @@ function display() {
     if (!edited) return;
     edited = false;
     const forwardOutputs = Array.from(document.querySelectorAll("#o-forwards span"));
-    forwardNames.forEach((p, i) => {
-        const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
-        forwardOutputs[i].textContent = txt;
-    });
+    forwardNames.forEach((p, i) =>
+        forwardOutputs[i].textContent = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n")
+    );
 
     const defenseOutputs = Array.from(document.querySelectorAll("#o-defense span"));
-    defenseNames.forEach((p, i) => {
-        const txt = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n");
-        defenseOutputs[i].textContent = txt;
-    });
+    defenseNames.forEach((p, i) =>
+        defenseOutputs[i].textContent = Array.from(document.querySelectorAll(`#${p} select`)).map(s => s.value).filter(v => v !== '').join("\n")
+    );
 
-    const goalieOutput = document.querySelector("#o-goalie span");
-    const txt = document.querySelector(`#goalie select`).value;
-    goalieOutput.textContent = txt;
+    document.querySelector("#o-goalie span").textContent = document.querySelector(`#goalie select`).value;
 }
 
 function importPlayersFile(e) {
@@ -189,7 +194,7 @@ function loadData() {
 
     selects.forEach(s => {
         const player = localStorage.getItem(getSelectId(s));
-        if (player === null) return;
+        if (!player) return;
         s.value = player;
         s.name = player;
         removePlayer(player);
@@ -198,14 +203,14 @@ function loadData() {
 
 function reset() {
     const playersStoreRaw = localStorage.getItem("players");
-    const playersStore = playersStoreRaw ? playersStoreRaw.split("\n") : [];
-    playerOptions = ["", ...playersStore];
+    playerOptions = playersStoreRaw ? playersStoreRaw.split("\n") : [];
     selects.forEach(i => i.textContent = '');
-    roster.textContent = playersStore.join("\n");
+    roster.textContent = playerOptions.join("\n");
 
-    if (playersStore.length)
+    if (playerOptions.length)
         selects.forEach(i => {
             i.name = "";
+            addBlankOption(i);
             playerOptions.forEach(p => addOption(i, p));
         });
 }

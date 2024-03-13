@@ -46,7 +46,7 @@
                 <h2>Features</h2>
                 <ul class="tasklist">
                     <li>
-                        <input type="checkbox" disabled>Terrain generation
+                        <input type="checkbox" disabled checked>Terrain generation
                         <ul>
                             <li><input type="checkbox" disabled checked>Based on the Wave Function Collapse algorithm</li>
                             <li><input type="checkbox" disabled checked>Chunk system</li>
@@ -170,23 +170,20 @@
             <section>
                 <h2>Generation</h2>
                 <figure>
-                    <img src="images/mesh.png" alt="Triangles">
-                    <figcaption>Triangles</figcaption>
+                    <img src="images/mesh.png" alt="Triangles mesh view">
+                    <figcaption>Debug line view, showing triangles</figcaption>
                 </figure>
+                <h3>Issues</h3>
+                <p>There are some cases where tiles don't have transition varients for every tile type and orientation.
+                    Instead, a <code>Missing</code> tile is placed, represented by purple and black.</p>
+                <p>To fix this, I could either make more transition varients (annoying) or remake the rules so only one or two
+                    transitions are possible.</p>
             </section>
         </article>
     </main>
     <footer>
-        <p>© 2024 ASoftGlow</p>
-        <a href="mailto:me@asoftglow.dev" style="display: flex;column-gap: 1ch;">
-            <svg class="icon" id="email" width="1em" viewBox="1.25 -0.75 17.5 12.5">
-                <g stroke="currentColor" stroke-width="1.1" fill="none">
-                    <path d="M18,0 L10,8 L2,0 Z M2,0 L2,11 L18,11 L18,0 Z"></path>
-                </g>
-            </svg>
-            Contact
-        </a>
-        <p>This site is WIP</p>
+        <span>© 2024 ASoftGlow</span>
+        <a href="mailto:me@asoftglow.dev">✉ Contact</a>
     </footer>
 </body>
 

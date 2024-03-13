@@ -39,11 +39,17 @@ footer {
     align-items: center;
     gap: 10px 30px;
     flex-wrap: wrap;
+    
+    $size: 1px;
+    $spacing: 20px;
+    background-image: repeating-radial-gradient(var(--color-text), var(--color-text) $size, transparent $size, transparent);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: $spacing $spacing;
 
-    :not(.icon) {
+    * {
         background-color: var(--color-accent);
-        margin: 0;
-        padding: 0 10px;
+        outline: 4px solid var(--color-accent);
     }
 
     a {
@@ -62,8 +68,8 @@ h6 {
 }
 
 ::selection {
-    color: #ffffffd4;
-    background: #00000058;
+    color: var(--color-bg);
+    background: var(--color-text);
 }
 
 li {

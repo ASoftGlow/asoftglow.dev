@@ -115,25 +115,38 @@ div:has(>.key) {
 }
 
 figure>img {
-    max-width: min(70vw, 380px);
+    max-width: min(70vw, calc(300px));
     max-height: 100%;
 }
 
 .carousel {
     overflow-x: scroll;
     display: flex;
-    height: 300px;
-    padding-left: 41px;
     scroll-snap-type: x mandatory;
-    background-color: unset;
 
     figure {
         scroll-snap-align: center;
         scroll-snap-stop: always;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:first-child {
+            margin-left: 0;
+            padding-left: 40px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            padding-right: 40px;
+        }
     }
 
     figcaption {
-        margin-right: 10px;
+        padding-right: 10px;
+        padding-top: 0.25em;
         text-align: right;
+        border-top: 2px dotted;
     }
 }

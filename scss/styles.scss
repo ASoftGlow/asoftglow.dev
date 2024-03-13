@@ -2,7 +2,11 @@
 
 html {
     height: 100%;
-    scrollbar-color: var(--color-accent) var(--color-text);
+    scrollbar-color: var(--color-bg) var(--color-text);
+}
+
+html, div {
+    scrollbar-width: thin;
 }
 
 body {

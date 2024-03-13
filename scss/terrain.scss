@@ -125,7 +125,7 @@ figure>img {
     height: 300px;
     padding-left: 41px;
     scroll-snap-type: x mandatory;
-    background-color: transparent;
+    background-color: unset;
 
     figure {
         scroll-snap-align: center;

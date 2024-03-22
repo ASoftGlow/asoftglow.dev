@@ -1,0 +1,8 @@
+<a id="home-link" href="/" title="Back">←</a>
+<header>
+    <div>
+        <h1>{{ title }}</h1>
+        {% if description %}<h3>{{ description }}</h3>{% endif %}
+    </div>
+    {% if image %}<img class="icon" width="64px" height="64px" src="{{ image }}" aria-hidden="true">{% endif %}
+</header>

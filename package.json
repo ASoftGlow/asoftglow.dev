@@ -1,0 +1,16 @@
+{
+  "name": "asoftglow.dev",
+  "version": "1.0.0",
+  "description": "My developer portfolio",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "ASoftGlow",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "sass": "^1.72.0"
+  }
+}

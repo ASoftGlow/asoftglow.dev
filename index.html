@@ -2,23 +2,9 @@
 <html lang="en-US">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="robots" content="index, follow">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="referrer" content="no-referrer">
-
-	<title>ASoftGlow.dev</title>
-	<meta name="author" content="ASoftGlow">
-	<meta name="creator" content="ASoftGlow">
-	<meta name="description" content="ASoftGlow's developer portfolio.">
-
-	<meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
-	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />
-
-	<link rel="shortcut icon" href="images/favicon.png">
-	<link rel="stylesheet" href="css/styles.css">
+	{% include 'head', test: 'idk' %}
 	<link rel="stylesheet" href="css/index.css">
-	<link rel="preload" href="fonts/Moderne Sans Font.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+	<link rel="preload" href="fonts/Moderne Sans Font.ttf" as="font" type="font/ttf">
 </head>
 
 <body>
@@ -28,7 +14,7 @@
 		<div id="bio">
 			<p>A highschool student who dabbles in programming.</p>
 			<p>I've messed around with
-				<b>web design</b>, <b>Python</b>, <br><b>Typescript</b>, <b>C#</b>, and <b>C & C++</b>.
+				<b>web design</b>, <b>Python</b>, <br><b>Typescript</b>, <b>C#</b>, <b>C</b>, and <b>C++</b>.
 			</p>
 		</div>
 		<div class="dotted divider"></div>
@@ -37,28 +23,25 @@
 			<div class="elevation elv-content">
 				<ul>
 					<li>
-						<a href="menyow.html">Discord bot</a>
+						<a href="menyow">Discord bot</a>
 					</li>
 					<li>
-						<a href="terrain.html">Terrain generator</a>
+						<a href="terrain">Terrain generator</a>
 					</li>
 					<li>
-						Cat pixel art generator
+						<span class="disabled-a">Cat pixel art generator</span>
 					</li>
 					<li>
-						<a href="website.html">Website</a>
+						<a href="website">Website</a>
 					</li>
 					<li>
-						<a href="hockey.html">Hockey line picker</a>
+						<a href="hockey">Hockey line picker</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</main>
-	<footer>
-		<span>© 2024 ASoftGlow</span>
-		<a href="mailto:me@asoftglow.dev">✉ Contact</a>
-	</footer>
+	{% include 'footer' %}
 </body>
 
 </html>

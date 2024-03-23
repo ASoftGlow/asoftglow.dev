@@ -58,45 +58,7 @@ jobs:
           # Upload entire repository
           path: '_site'
           name: dev
-          
-  # build-scra:
-  #   if: "!contains(github.event.commits[0].message, '[skip ci]')"
-  #   needs: build-dev
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: github-pages
-  
-  #   steps:
-  #     - name: Checkout SCRA
-  #       uses: actions/checkout@v3
-  #       with:
-  #         repository: ASoftGlow/scra
-  #         token: ${{ secrets.GH_SCRA_PAT }}
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "lts/*"
-  #         cache: npm
-  #     - name: Restore cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: |
-  #           .next/cache
-  #         # Generate a new cache whenever packages or source files change.
-  #         key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.tsx') }}
-  #         # If source files changed but packages didn't, rebuild from a prior cache.
-  #         restore-keys: |
-  #           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-  #     - name: Install dependencies
-  #       run: npm install
-  #     - name: Build with Next.js
-  #       run: npx --no-install next build
-  #     - name: Upload artifact
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         path: 'out'
-  #         name: scra
-          
+
   deploy:
     environment:
       name: github-pages
@@ -108,11 +70,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dev
-      # - name: Download scra artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: scra
-      #     path: scra
+
+      - run: mkdir srca
+      - name: Download scra release
+        run: gh release download --repo ASoftGlow/scra -D srca
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_SCRA_PAT }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

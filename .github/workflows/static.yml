@@ -73,7 +73,7 @@ jobs:
 
       - run: mkdir srca
       - name: Download scra release
-        run: gh release download --repo ASoftGlow/scra -D srca
+        run: gh release download -R ASoftGlow/scra -p 'scra.zip' -D srca
         env:
           GITHUB_TOKEN: ${{ secrets.GH_SCRA_PAT }}
 

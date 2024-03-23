@@ -1,0 +1,3 @@
+[submodule "passthrough/hlp"]
+	path = passthrough/hlp
+	url = https://github.com/ASoftGlow/hlp.git

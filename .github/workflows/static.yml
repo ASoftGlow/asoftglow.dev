@@ -75,7 +75,7 @@ jobs:
         run: |
           mkdir scra
           gh release download -R ASoftGlow/scra -p 'scra.zip'
-          unzip scra.zip -d scra -q
+          unzip -q scra.zip -d scra
           rm scra.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GH_SCRA_PAT }}

@@ -5,7 +5,8 @@ html {
     scrollbar-color: var(--color-bg) var(--color-text);
 }
 
-html, div {
+html,
+div {
     scrollbar-width: thin;
 }
 
@@ -39,7 +40,7 @@ footer {
     align-items: center;
     gap: 10px 30px;
     flex-wrap: wrap;
-    
+
     $size: 1px;
     $spacing: 20px;
     background-image: repeating-radial-gradient(var(--color-text), var(--color-text) $size, transparent $size, transparent);
@@ -78,6 +79,7 @@ li {
 
 a {
     color: var(--color-text);
+    user-select: all;
 }
 
 .elevation {
@@ -131,17 +133,17 @@ a {
 }
 
 input[type="color"] {
+    outline: none;
     border: none;
     padding: 0;
     width: 30px;
     height: 20px;
-}
 
-input[type="color"] {
     &::-webkit-color-swatch-wrapper {
         padding: 0;
     }
-
+    
+    &::-moz-color-swatch,
     &::-webkit-color-swatch {
         outline: 1px solid white;
         outline-offset: -2px;
@@ -182,4 +184,12 @@ input[type="color"] {
 
 p~p {
     margin-top: 0;
+}
+
+li:has(>details) {
+    list-style: none;
+}
+
+abbr {
+    cursor: help;
 }

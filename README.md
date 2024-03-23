@@ -3,12 +3,12 @@
 My developer portfolio
 
 ## Services
+-   [Porkbun](https://porkbun.com) - Domain Registrar
+-   [Github Pages](https://pages.github.com) - Host
 
--   Domain Registrar - [Porkbun](https://porkbun.com)
--   Webside Host - [Github Pages](https://pages.github.com)
+## Web tools
+-   [Sass](https://sass-lang.com) - CSS Preprocesser
+-   [11ty](https://11ty.dev) - Static site generator
 
-## Frameworks
--   CSS Preprocesser - [Sass](https://sass-lang.com)
-
-## Inspiration
+## Inspirations
 - [TLD Observer](https://tld.observer)

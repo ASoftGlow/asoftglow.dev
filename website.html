@@ -1,38 +1,21 @@
+---
+title: ASoftGlow.dev
+description: Static website
+---
 <!DOCTYPE html>
 <html lang="en-US">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="referrer" content="no-referrer">
-
-    <title>ASoftGlow.dev</title>
-    <meta name="author" content="ASoftGlow">
-    <meta name="creator" content="ASoftGlow">
-    <meta name="description" content="ASoftGlow's developer portfolio.">
-
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />
-
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/website.css">
+    {% include 'head' %}
+    <link rel="stylesheet" href="/css/website.css">
 </head>
 
 <body>
     <main>
-        <a id="home-link" href="/" title="Back">←</a>
-        <header>
-            <div>
-                <h1>ASoftGlow.dev</h1>
-                <h3>Static website</h3>
-            </div>
-            <img class="icon" width="64px" height="64px" src="images/favicon.png" aria-hidden="true">
-        </header>
+        {% include 'project-header', image: '/images/favicon.png' %}
 
         <h2>Why?</h2>
-        <p>The idea of having a website under my own domain has always apealed to me.</p>
+        <p>The idea of having a website under my own domain has always appealed to me.</p>
         <ul>
             <li>I think it's cool</li>
             <li>
@@ -73,6 +56,12 @@
         <h2>Host</h2>
         <a href="https://pages.github.com">Github Pages</a>
 
+        <h2>Web tools</h2>
+        <ul>
+            <li><b><a href="https://sass-lang.com">Sass</a></b> - For better CSS flow</li>
+            <li><b><a href="https://11ty.dev">11ty</a></b> - To keep pages <abbr title="Don't repeat yourself">DRY</abbr></li>
+        </ul>
+
         <h2>Design</h2>
         <h3>Inspiration</h3>
         <ul>
@@ -86,15 +75,12 @@
             </li>
         </ul>
         <h3>Colors</h3>
-        <script src="scripts/website.js"></script>
         <label>Accent color</label>
         <input type="color" id="accent-color">
+        <script src="/scripts/website.js"></script>
 
     </main>
-    <footer>
-        <span>© 2024 ASoftGlow</span>
-        <a href="mailto:me@asoftglow.dev">✉ Contact</a>
-    </footer>
+    {% include 'footer' %}
 </body>
 
 </html>

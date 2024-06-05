@@ -7,7 +7,6 @@ My developer portfolio
 -   [Github Pages](https://pages.github.com) - Host
 
 ## Web tools
--   [Sass](https://sass-lang.com) - CSS Preprocesser
 -   [11ty](https://11ty.dev) - Static site generator
 
 ## Inspirations

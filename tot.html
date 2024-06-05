@@ -1,0 +1,61 @@
+---
+title: The Oregon Trail
+description: A TUI game heavily based on MECC's 1990 The Oregon Trail
+image: '/images/tot/tot.ico'
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    {% include 'head' %}
+    <style>
+        pre.screen {
+            background-color: var(--color-text);
+            color: var(--color-bg);
+            width: fit-content;
+
+            &::selection {
+                color: var(--color-text);
+                background: var(--color-bg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% include 'project-header' %}
+        <p><a href="https://github.com/ASoftGlow/TheOregonTrail">Link to Github repo</a></p>
+
+        <figure>
+            <pre class="screen">╔══════════ The Oregon Trail ══════════╗
+║                                      ║
+║    You may:                          ║
+║                                      ║
+║    1. Start traveling trail          ║
+║    2. Continue traveling trail       ║
+║    3. Learn about the trail          ║
+║    4. Change settings                ║
+║    5. Exit                           ║
+║                                      ║
+║    What is your choice?              ║
+║                                      ║
+╚══════════════════════════════════════╝</pre>
+            <figcaption>The main screen</figcaption>
+        </figure>
+
+        <ul>
+            <li>Written in C</li>
+            <li>Save and load progress</li>
+            <li>Colorful</li>
+            <li>Mini-games
+                <ul>
+                    <li>Blackjack</li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+    {% include 'footer' %}
+</body>
+
+</html>

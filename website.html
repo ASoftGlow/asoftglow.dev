@@ -1,18 +1,18 @@
 ---
 title: ASoftGlow.dev
 description: Static website
+image: '/images/favicon.png'
 ---
 <!DOCTYPE html>
 <html lang="en-US">
 
 <head>
     {% include 'head' %}
-    <link rel="stylesheet" href="/css/website.css">
 </head>
 
 <body>
     <main>
-        {% include 'project-header', image: '/images/favicon.png' %}
+        {% include 'project-header' %}
 
         <h2>Why?</h2>
         <p>The idea of having a website under my own domain has always appealed to me.</p>
@@ -58,7 +58,6 @@ description: Static website
 
         <h2>Web tools</h2>
         <ul>
-            <li><b><a href="https://sass-lang.com">Sass</a></b> - For better CSS flow</li>
             <li><b><a href="https://11ty.dev">11ty</a></b> - To keep pages <abbr title="Don't repeat yourself">DRY</abbr></li>
         </ul>
 

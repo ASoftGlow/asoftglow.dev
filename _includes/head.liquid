@@ -4,9 +4,15 @@
 <meta name="referrer" content="no-referrer">
 
 <title>ASoftGlow.dev{% if title %} | {{ title }}{% endif %}</title>
+{% if title %}<meta property="og:title" content="{{ title }}">{% endif %}
 <meta name="author" content="ASoftGlow">
 <meta name="creator" content="ASoftGlow">
+<link rel="me" href="mailto:me@asoftglow.dev">
+<meta property="og:description" content="{% if description %}{{ description }}{% else %}ASoftGlow's developer portfolio.{% endif %}">
 <meta name="description" content="{% if description %}{{ description }}{% else %}ASoftGlow's developer portfolio.{% endif %}">
+{% if image %}<meta property="og:image" content="{{ image }}">{% endif %}
+<meta property="og:site_name" content="ASoftGlow.dev">
+<meta property="og:type" content="website">
 
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="hsl(130, 33%, 66%)" />
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="hsl(130, 20%, 33%)" />

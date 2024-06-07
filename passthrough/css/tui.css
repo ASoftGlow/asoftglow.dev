@@ -1,0 +1,38 @@
+pre.tui {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    width: fit-content;
+
+    &::selection, ::selection {
+        color: var(--color-text);
+        background: var(--color-bg);
+    }
+
+    .RED {
+        color: red;
+    }
+
+    .GREEN {
+        color: green;
+    }
+
+    .YELLOW {
+        color: rgb(251, 193, 56);
+    }
+
+    .BLUE {
+        color: rgb(110, 110, 255);
+    }
+
+    .MAGENTA {
+        color: magenta;
+    }
+
+    .CYAN {
+        color: cyan;
+    }
+
+    .GRAY {
+        color: gray;
+    }
+}

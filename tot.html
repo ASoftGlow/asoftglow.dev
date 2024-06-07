@@ -8,18 +8,7 @@ image: '/images/tot/tot.ico'
 
 <head>
     {% include 'head' %}
-    <style>
-        pre.screen {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-            width: fit-content;
-
-            &::selection {
-                color: var(--color-text);
-                background: var(--color-bg);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/tui.css">
 </head>
 
 <body>
@@ -28,19 +17,19 @@ image: '/images/tot/tot.ico'
         <p><a href="https://github.com/ASoftGlow/TheOregonTrail">Link to Github repo</a></p>
 
         <figure>
-            <pre class="screen">╔══════════ The Oregon Trail ══════════╗
+            <pre class="tui"><span class="YELLOW">╔══════════</span> The Oregon Trail <span class="YELLOW">══════════╗
 ║                                      ║
-║    You may:                          ║
+║</span>    You may:                          <span class="YELLOW">║
 ║                                      ║
-║    1. Start traveling trail          ║
-║    2. Continue traveling trail       ║
-║    3. Learn about the trail          ║
-║    4. Change settings                ║
-║    5. Exit                           ║
+║</span>    1. <span class="BLUE">Start traveling trail</span>          <span class="YELLOW">║
+║</span>    2. Continue traveling trail       <span class="YELLOW">║
+║</span>    3. Learn about the trail          <span class="YELLOW">║
+║</span>    4. Change settings                <span class="YELLOW">║
+║</span>    5. Exit                           <span class="YELLOW">║
 ║                                      ║
-║    What is your choice?              ║
+║</span>    What is your choice?              <span class="YELLOW">║
 ║                                      ║
-╚══════════════════════════════════════╝</pre>
+╚══════════════════════════════════════╝</span></pre>
             <figcaption>The main screen</figcaption>
         </figure>
 

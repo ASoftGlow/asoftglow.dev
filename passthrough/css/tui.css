@@ -1,38 +1,91 @@
 pre.tui {
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    --tui-red: red;
+    --tui-yellow: rgb(251, 193, 56);
+    --tui-green: green;
+    --tui-blue: rgb(63, 63, 255);
+    --tui-cyan: cyan;
+    --tui-magenta: magenta;
+    --tui-black: black;
+    --tui-white: white;
+
+    --tui-bg: var(--tui-black);
+    --tui-txt: var(--tui-white);
+
+    color: var(--tui-txt);
+    background-color: var(--tui-bg);
     width: fit-content;
 
-    &::selection, ::selection {
-        color: var(--color-text);
-        background: var(--color-bg);
+    &::selection,
+    ::selection {
+        color: var(--tui-bg);
+        background: var(--tui-txt);
     }
 
-    .RED {
-        color: red;
+    .R {
+        color: var(--tui-red);
     }
 
-    .GREEN {
-        color: green;
+    .bR {
+        background-color: var(--tui-red);
     }
 
-    .YELLOW {
-        color: rgb(251, 193, 56);
+    .G {
+        color: var(--tui-green);
     }
 
-    .BLUE {
-        color: rgb(110, 110, 255);
+    .bG {
+        background-color: var(--tui-green);
     }
 
-    .MAGENTA {
-        color: magenta;
+    .Y {
+        color: var(--tui-yellow);
     }
 
-    .CYAN {
-        color: cyan;
+    .bY {
+        background-color: var(--tui-yellow);
     }
 
-    .GRAY {
-        color: gray;
+    .B {
+        color: var(--tui-blue);
+    }
+
+    .bB {
+        background-color: var(--tui-blue);
+    }
+
+    .M {
+        color: var(--tui-magenta);
+    }
+
+    .bM {
+        background-color: var(--tui-magenta);
+    }
+
+    .C {
+        color: var(--tui-cyan);
+    }
+
+    .bC {
+        background-color: var(--tui-cyan);
+    }
+
+    .E {
+        color: var(--tui-black);
+    }
+
+    .bW {
+        background-color: var(--tui-white);
+    }
+
+    .cursor {
+        @media not (prefers-reduced-motion) {
+            animation: cursor_blink 1.5s step-start infinite;
+        }
+    }
+}
+
+@keyframes cursor_blink {
+    50% {
+        opacity: 0;
     }
 }

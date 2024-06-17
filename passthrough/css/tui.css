@@ -11,6 +11,7 @@ pre.tui {
     --tui-bg: var(--tui-black);
     --tui-txt: var(--tui-white);
 
+    font-family: monospace;
     color: var(--tui-txt);
     background-color: var(--tui-bg);
     width: fit-content;

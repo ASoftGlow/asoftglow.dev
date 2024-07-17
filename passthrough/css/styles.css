@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: "Moderne Sans";
-    src: url("../fonts/Moderne Sans Font.ttf");
+    src: local("Moderne Sans"), url("/fonts/Moderne Sans Font.ttf") format("truetype");
     font-display: swap;
 }
 

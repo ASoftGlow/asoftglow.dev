@@ -7,15 +7,15 @@
     --font-title: "Moderne Sans", Verdana, Tahoma, sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
+@media not print and (prefers-color-scheme: light) {
     :root {
-        --color-accent: #8cc595;
+        --color-accent: #93bd9a;
     }
 }
 
-@media (prefers-color-scheme: dark) {
+@media not print and (prefers-color-scheme: dark) {
     :root {
-        --color-accent: #436549;
+        --color-accent: #486f4f;
     }
 }
 
@@ -59,8 +59,6 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
     width: 80%;
     max-width: 400px;
     margin: 0 auto;
@@ -210,10 +208,6 @@ input[type="color"] {
     display: inline-block;
 }
 
-p~p {
-    margin-top: 0;
-}
-
 li:has(>details) {
     list-style: none;
     margin-left: -15px;
@@ -221,4 +215,10 @@ li:has(>details) {
 
 abbr {
     cursor: help;
+}
+
+.subtitle {
+    font-family: initial;
+    word-spacing: initial;
+    font-weight: normal;
 }

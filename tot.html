@@ -16,6 +16,7 @@ image: '/images/tot/tot.ico'
         {% include 'project-header' %}
         <p><a href="https://github.com/ASoftGlow/TheOregonTrail">Link to Github repo</a></p>
 
+        <h2 id="samples">Samples</h2>
         <figure>
             <pre class="tui"><span class="Y">╔══════════ </span>The Oregon Trail</span><span class="Y"> ══════════╗
 ║</span>                                      </span><span class="Y">║
@@ -33,7 +34,7 @@ image: '/images/tot/tot.ico'
             <figcaption>The main screen</figcaption>
         </figure>
         <details>
-            <summary>More screens</summary>
+            <summary>More</summary>
             <figure>
                 <pre class="tui"><span class="Y">╔══════════════════════════════════════╗
 ║</span>                                      </span><span class="Y">║
@@ -95,16 +96,42 @@ image: '/images/tot/tot.ico'
                 <figcaption>A game of blackjack</figcaption>
             </figure>
         </details>
+        <h2>Features</h2>
         <ul>
             <li>Written in C</li>
             <li>Save and load progress</li>
+            <li>Settings menu</li>
             <li>Colorful</li>
             <li>Mini-games
                 <ul>
                     <li>Blackjack</li>
                 </ul>
             </li>
+            <li>Cross platform</li>
         </ul>
+        <p>
+            I quite adore the simplicity of oldy video games such as MECC's 1998 The Oregon Trail.
+            That's why I attempted my own version. At the time of writing, it is not even close to completion, but I didn't that to happen.
+        </p>
+        <p>
+            Implementing baseline, framework-related features such as TUI borders and selection was quite enjoyable.
+            This was my first large C-based project, so, on a recommendation,
+            I used <a href="https://cmake.org">CMake</a>, a popular build system for C/C++.
+        </p>
+        <p>
+            I wanted to stay away from cross platform input libraries such as <a href="https://www.gnu.org/software/ncurses/">ncurses</a>, mostly for educational purposes.
+            However, this meant I had to research and account for the various querks of Windows and Unix (via <a
+                href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/termios.h.html">termios</a>);
+            I would not recommend doing so yourself.
+        </p>
+        <br>
+        <p>
+            For the screen figures shown in <a href="#samples">Samples</a>, I wrote a seperate program to capture console
+            output and convert it to HTML. Given a <abbr title="process identification">PID</abbr>, it uses the Win32 API to attach
+            to the console and gather screen buffer text and styles, and cursor position <i>(however, I could not get <a
+                href="https://learn.microsoft.com/en-us/windows/console/getconsolecursorinfo">GetConsoleCursorInfo</a>
+            to cooperate; it always returned an access denied error. If anyone suspects the reason, I am most curious to know)</i>.
+        </p>
     </main>
     {% include 'footer' %}
 </body>

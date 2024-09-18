@@ -1,0 +1,138 @@
+---
+title: Useless Shell
+image: '/images/useless-shell/us.ico'
+link: https://github.com/ASoftGlow/UselessShell
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    {% include 'head' %}
+</head>
+
+<body>
+    <main>
+        {% include 'back' %}
+        <article>
+            {% include 'project-header' %}
+            <p>A shell written in C with no purpose. However, it was fun to write.</p>
+            <h2>Features</h2>
+            <ul>
+                <li>Command auto completion (Tab)</li>
+                <li>Command syntax hints (Ctrl+Tab)</li>
+                <li>List commands with <code>help</code></li>
+                <li>
+                    <h3>Users</h3>
+                    <ul>
+                        <li>Saved to file</li>
+                        <li>Password hashing using the RSA Data Security, Inc. MD5 Message Digest Algorithm</li>
+                        <li>Superusers</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>History</h3>
+                    <ul>
+                        <li>Saved to file per user (& guest)</li>
+                        <li>View with <code>history</code></li>
+                        <li>Clear with <code>history clear</code></li>
+                        <li>Navigation (↑ & ↓)</li>
+                    </ul>
+                </li>
+                <li>Easy command declaration (see <a href="https://raw.githubusercontent.com/ASoftGlow/UselessShell/main/src/cmd_defs.c">cmd_defs.c</a>)</li>
+                <li>Command verification and unit testing</li>
+                <li>
+                    <h3>Input buffer editing</h3>
+                    <ul>
+                        <li>Cursor navigation (← & →)</li>
+                        <li>Word navigation (Ctrl+← & Ctrl+→)</li>
+                        <li>Backspace & Back word (Ctrl+Backspace)</li>
+                        <li>Delete & Delete word (Ctrl+Del)</li>
+                        <li>Clear (escape)</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Portable</h3>
+                    <p>Single executable file. Note a config directory is placed at</p>
+                    <table>
+                        <tbody>
+                            <tr><th>(Linux)</th><td>~/.config/useless_shell</td></tr>
+                            <tr><th>(Windows)</th><td>~/AppData/Roaming/.useless-shell</td></tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+            <h1>Usage</h1>
+            <h3>Adding a new command</h2>
+                <ol>
+                    <li>
+                        Add definition to <code>cmd_defs.c</code>
+                        <p>Use the <code>CMD</code> macro with named-member-initalization style for
+                            <code>name</code>, <code>description</code>, <code>type</code>, <code>optional</code>, <code>impl</code>, and <code>auto_complete</code>.
+                            <br><code>name</code> and <code>type</code> are required, while the others are optional.
+                        </p>
+                        <p>
+                            Valid types must be prefixed with <code>USCommandArgType</code> and are as follows:
+                            <br><code>Number</code>, <code>String</code>, <code>Secret</code>, <code>Boolean</code>, and <code>Flag</code>.
+                        </p>
+                        <p>When type is <code>Flag</code>, <code>optional</code> and <code>auto_complete</code> are ignored.</p>
+                        <p><code>impl</code> describes the implementation. Set it to the <code>CMD_IMPL</code> macro </p>
+                        <details open>
+                            <summary><strong>Example</strong></summary>
+                            <pre><code>CMD(
+    .name = "history",
+    .description = "Display the session command history",
+    .impl = CMD_IMPL(history),
+    SUB_CMDS(
+        CMD(
+            .name = "clear",
+            .impl = CMD_IMPL(history_clear)
+        )
+    )
+)</code></pre>
+                        </details>
+                    </li>
+                    <li>
+                        Add implementation declaration to <code>cmd_impl.h</code>
+                        <p>
+                            Call the <code>CMD_IMPL_PROTO</code> with the implementation name you chose in the previous step.
+                        </p>
+                        <details open>
+                            <summary><strong>Example</strong></summary>
+                            <pre><code>CMD_IMPL_PROTO(history);</code></pre>
+                        </details>
+                    </li>
+                    <li>
+                        Add implementation to <code>cmd_impl.c</code>
+                        <p>
+
+                        </p>
+                        <details open>
+                            <summary><strong>Example</strong></summary>
+                            <pre><code>CMD_IMPL_PROTO(history)
+{
+    // Information about the shell can be accessed via `us` parameter
+    if (fseek(us->history.read, 0, SEEK_SET) == 0)
+    {
+        ...
+    }
+    else
+    {
+        puts(STYLE_ERROR("Failed to read history"));
+        return USCommandReturnError;
+    }
+    return USCommandReturnNormal;
+}</code></pre>
+                        </details>
+                    </li>
+                </ol>
+                <p>
+                    Adding a new auto complete function is very similar, but uses the <code>AC_IMPL</code>
+                    and <code>AC_IMPL_PROTO</code> macros instead.
+                </p>
+        </article>
+    </main>
+    {% include 'footer' %}
+</body>
+
+</html>

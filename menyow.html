@@ -13,50 +13,53 @@ image: '/images/menyow/sc.png'
 
 <body>
     <main>
-        {% include 'project-header' %}
-        <p>
-            At some point, my friend group moved from <a href="https://steampowered.com">Steam</a> to <a href="https://discord.com">Discord</a> for communication.
-            Before then, I had never used Discord. One advantage it had over Steam was bots.
-            I was interested in making one of my own to interact with my friends, but there was an issue:
-            I did know any programming languages in which to code it in.
-            Previously, I had mainly been making <a href="https://scratch.mit.edu">Scratch</a> projects.
-            Pathetic, I know. I had been wanting to learn a programming language for while.
-            However, this bot idea gave me the inspiration to do so.
-            <br><br>
-            So, with minimal <a href="https://python.org">Python</a> knowledge, I began coding.
-        </p>
-        <div class="dotted divider"></div>
-        <div class="timeline">
-            <time>2020</time>
-            <details open>
-                <summary title="Explore"><span class="elevation title">discord.py - Python</span></summary>
-                <div class="elevation elv-content">
-                    <p>
-                        <a href="https://github.com/Rapptz/discord.py">Github link</a>
-                    </p>
-                </div>
-            </details>
-            <time>2021</time>
-            <details class="small">
-                <summary title="Explore"><span class="elevation title">Disnake - Python</span></summary>
-                <div class="elevation elv-content">
-                    <p>
-                        <a href="https://github.com/DisnakeDev/disnake">Github link</a>
-                        <br>
-                        A fork of discord.py, created after was discountinued.
-                    </p>
-                </div>
-            </details>
-            <time>2023</time>
-            <details>
-                <summary title="Explore"><span class="elevation title">Discordx - Typescript</span></summary>
-                <div class="elevation elv-content">
-                    <p>
-                        <a href="https://github.com/discordx-ts/discordx">Github link</a>
-                    </p>
-                </div>
-            </details>
-        </div>
+        {% include 'back' %}
+        <article>
+            {% include 'project-header' %}
+            <p>
+                At some point, my friend group moved from <a href="https://steampowered.com">Steam</a> to <a href="https://discord.com">Discord</a> for communication.
+                Before then, I had never used Discord. One advantage it had over Steam was bots.
+                I was interested in making one of my own to interact with my friends, but there was an issue:
+                I did know any programming languages in which to code it in.
+                Previously, I had mainly been making <a href="https://scratch.mit.edu">Scratch</a> projects.
+                Pathetic, I know. I had been wanting to learn a programming language for while.
+                However, this bot idea gave me the inspiration to do so.
+                <br><br>
+                So, with minimal <a href="https://python.org">Python</a> knowledge, I began coding.
+            </p>
+            <div class="dotted divider"></div>
+            <div class="timeline">
+                <time>2020</time>
+                <details open>
+                    <summary title="Explore"><span class="elevation title">discord.py - Python</span></summary>
+                    <div class="elevation elv-content">
+                        <p>
+                            <a href="https://github.com/Rapptz/discord.py">Github link</a>
+                        </p>
+                    </div>
+                </details>
+                <time>2021</time>
+                <details class="small">
+                    <summary title="Explore"><span class="elevation title">Disnake - Python</span></summary>
+                    <div class="elevation elv-content">
+                        <p>
+                            <a href="https://github.com/DisnakeDev/disnake">Github link</a>
+                            <br>
+                            A fork of discord.py, created after was discountinued.
+                        </p>
+                    </div>
+                </details>
+                <time>2023</time>
+                <details>
+                    <summary title="Explore"><span class="elevation title">Discordx - Typescript</span></summary>
+                    <div class="elevation elv-content">
+                        <p>
+                            <a href="https://github.com/discordx-ts/discordx">Github link</a>
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </article>
     </main>
     {% include 'footer' %}
 </body>

@@ -71,15 +71,6 @@ jobs:
         with:
           name: dev
 
-      - name: Download scra release
-        run: |
-          mkdir scra
-          gh release download -R ASoftGlow/scra -p 'scra.zip'
-          unzip -q scra.zip -d scra
-          rm scra.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_SCRA_PAT }}
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

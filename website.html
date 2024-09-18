@@ -12,72 +12,74 @@ image: '/images/favicon.ico'
 
 <body>
     <main>
-        {% include 'project-header' %}
+        {# include 'back' %}
+        <article>
+            {% include 'project-header' %}
 
-        <h2>Why?</h2>
-        <p>The idea of having a website under my own domain has always appealed to me.</p>
-        <ul>
-            <li>I think it's cool</li>
-            <li>
-                <details>
-                    <summary>Shorter url</summary>
+            <h2>Why?</h2>
+            <p>The idea of having a website under my own domain has always appealed to me.</p>
+            <ul>
+                <li>I think it's cool</li>
+                <li>
+                    <details>
+                        <summary>Shorter url</summary>
+                        <p>
+                            When using a website host without a custom domain, your site is usually under their domain.
+                            It may be identified by the subdomain or path.<br>
+                            For example, my default <a href="https://pages.github.com">Github Pages</a> url would be <code>asoftglow.github.io</code>.
+                            Alternatively, it could be identified in the path, like <a href="https://sites.google.com">Google Sites</a>:
+                            <code>sites.google.com/view/asoftglow</code>
+                        </p>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Customizability and mobility</summary>
+                        <h5>Mobility</h5>
+                        <p>
+                            Suppose you were hosting your website through <a href="https://wordpress.com">WordPress</a> and its url was
+                            <code>asoftglow.wordpress.com</code>.
+                            You give out the link to everyone you know, and your relatives bookmark it for safekeeping.
+                            Now you switch to Google Sites. Your new url is <code>sites.google.com/view/asoftglow</code>.
+                            See the problem? Your relatives' bookmarks no longer work.
+                            You need to inform them all of the change, which means you need to deal with... a few choice relatives.
+                            That's no good. Instead, if you had used a custom domain, you'd simply tell your new host to use it.
+                        </p>
+                        <h5>Customizability</h5>
+                        <p>
+                            There are a plethora of top level domains (TLDs) to choose from.
+                        </p>
+                    </details>
+                </li>
+            </ul>
+
+            <h2>Domain Registrar</h2>
+
+            <h2>Host</h2>
+            <a href="https://pages.github.com">Github Pages</a>
+
+            <h2>Web tools</h2>
+            <ul>
+                <li><b><a href="https://11ty.dev">11ty</a></b> - To keep pages <abbr title="Don't repeat yourself">DRY</abbr></li>
+            </ul>
+
+            <h2>Design</h2>
+            <h3>Inspiration</h3>
+            <ul>
+                <li>
                     <p>
-                        When using a website host without a custom domain, your site is usually under their domain.
-                        It may be identified by the subdomain or path.<br>
-                        For example, my default <a href="https://pages.github.com">Github Pages</a> url would be <code>asoftglow.github.io</code>.
-                        Alternatively, it could be identified in the path, like <a href="https://sites.google.com">Google Sites</a>:
-                        <code>sites.google.com/view/asoftglow</code>
+                        Coincidentally, I found this site while researching TLDs.
+                        The site doesn't seem to be functional, but I absolutely adore the design.
+                        It's clean and simple, with a retro vibe I didn't previously know about.
+                        <a href="https://tld.observer">TLD Observer</a>
                     </p>
-                </details>
-            </li>
-            <li>
-                <details>
-                    <summary>Customizability and mobility</summary>
-                    <h5>Mobility</h5>
-                    <p>
-                        Suppose you were hosting your website through <a href="https://wordpress.com">WordPress</a> and its url was
-                        <code>asoftglow.wordpress.com</code>.
-                        You give out the link to everyone you know, and your relatives bookmark it for safekeeping.
-                        Now you switch to Google Sites. Your new url is <code>sites.google.com/view/asoftglow</code>.
-                        See the problem? Your relatives' bookmarks no longer work.
-                        You need to inform them all of the change, which means you need to deal with... a few choice relatives.
-                        That's no good. Instead, if you had used a custom domain, you'd simply tell your new host to use it.
-                    </p>
-                    <h5>Customizability</h5>
-                    <p>
-                        There are a plethora of top level domains (TLDs) to choose from.
-                    </p>
-                </details>
-            </li>
-        </ul>
-
-        <h2>Domain Registrar</h2>
-
-        <h2>Host</h2>
-        <a href="https://pages.github.com">Github Pages</a>
-
-        <h2>Web tools</h2>
-        <ul>
-            <li><b><a href="https://11ty.dev">11ty</a></b> - To keep pages <abbr title="Don't repeat yourself">DRY</abbr></li>
-        </ul>
-
-        <h2>Design</h2>
-        <h3>Inspiration</h3>
-        <ul>
-            <li>
-                <p>
-                    Coincidentally, I found this site while researching TLDs.
-                    The site doesn't seem to be functional, but I absolutely adore the design.
-                    It's clean and simple, with a retro vibe I didn't previously know about.
-                    <a href="https://tld.observer">TLD Observer</a>
-                </p>
-            </li>
-        </ul>
-        <h3>Colors</h3>
-        <label>Accent color</label>
-        <input type="color" id="accent-color">
-        <script src="/scripts/website.js"></script>
-
+                </li>
+            </ul>
+            <h3>Colors</h3>
+            <label>Accent color</label>
+            <input type="color" id="accent-color">
+            <script src="/scripts/website.js"></script>
+        </article>
     </main>
     {% include 'footer' %}
 </body>

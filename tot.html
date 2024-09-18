@@ -2,6 +2,7 @@
 title: The Oregon Trail
 description: A TUI game heavily based on MECC's 1990 The Oregon Trail
 image: '/images/tot/tot.ico'
+link: 'https://github.com/ASoftGlow/TheOregonTrail'
 ---
 <!DOCTYPE html>
 <html lang="en-US">
@@ -13,12 +14,13 @@ image: '/images/tot/tot.ico'
 
 <body>
     <main>
-        {% include 'project-header' %}
-        <p><a href="https://github.com/ASoftGlow/TheOregonTrail">Link to Github repo</a></p>
+        {% include 'back' %}
+        <article>
+            {% include 'project-header' %}
 
-        <h2 id="samples">Samples</h2>
-        <figure>
-            <pre class="tui"><span class="Y">╔══════════ </span>The Oregon Trail</span><span class="Y"> ══════════╗
+            <h2 id="samples">Samples</h2>
+            <figure>
+                <pre class="tui"><span class="Y">╔══════════ </span>The Oregon Trail</span><span class="Y"> ══════════╗
 ║</span>                                      </span><span class="Y">║
 ║</span>    You may:                          </span><span class="Y">║
 ║</span>                                      </span><span class="Y">║
@@ -31,12 +33,12 @@ image: '/images/tot/tot.ico'
 ║</span>    What is your choice? <span class="cursor">_</span>            </span><span class="Y">║
 ║</span>                                      </span><span class="Y">║
 ╚══════════════════════════════════════╝</span></pre>
-            <figcaption>The main screen</figcaption>
-        </figure>
-        <details>
-            <summary>More</summary>
-            <figure>
-                <pre class="tui"><span class="Y">╔══════════════════════════════════════╗
+                <figcaption>The main screen</figcaption>
+            </figure>
+            <details>
+                <summary>More</summary>
+                <figure>
+                    <pre class="tui"><span class="Y">╔══════════════════════════════════════╗
 ║</span>                                      </span><span class="Y">║
 ║</span>    It is 1848. Your jumping off      </span><span class="Y">║
 ║</span>    place for Oregon is               </span><span class="Y">║
@@ -54,10 +56,10 @@ image: '/images/tot/tot.ico'
 ║</span>    What is your choice?              </span><span class="Y">║
 ║</span>                                      </span><span class="Y">║
 ╚══════════════════════════════════════╝</span></pre>
-                <figcaption>Choosing a month to leave (selecting May)</figcaption>
-            </figure>
-            <figure>
-                <pre class="tui"><span class="C">╔════════ </span>Matt's General Store</span><span class="C"> ════════╗
+                    <figcaption>Choosing a month to leave (selecting May)</figcaption>
+                </figure>
+                <figure>
+                    <pre class="tui"><span class="C">╔════════ </span>Matt's General Store</span><span class="C"> ════════╗
 ║</span>        Independence, Missouri        </span><span class="C">║
 ║</span>                                      </span><span class="C">║
 ║</span>                     March 1, 1868    </span><span class="C">║
@@ -77,10 +79,10 @@ image: '/images/tot/tot.ico'
 ║</span>                                      </span><span class="C">║
 ║</span>    Press SPACE BAR to leave store    </span><span class="C">║
 ╚══════════════════════════════════════╝</span></pre>
-                <figcaption>Matt's general store</figcaption>
-            </figure>
-            <figure>
-                <pre class="tui"> Bet: $10.50                            
+                    <figcaption>Matt's general store</figcaption>
+                </figure>
+                <figure>
+                    <pre class="tui"> Bet: $10.50                            
                                         
    </span><span class="R bR">::</span> </span><span class="R bW"> 8</span>                                
    </span><span class="R bR">::</span> </span><span class="R bW">♠ </span>                                
@@ -93,45 +95,46 @@ image: '/images/tot/tot.ico'
  D - Double down                        
  </span><span class="E">P - Split</span>                              
  Q - Quit</span></pre>
-                <figcaption>A game of blackjack</figcaption>
-            </figure>
-        </details>
-        <h2>Features</h2>
-        <ul>
-            <li>Written in C</li>
-            <li>Save and load progress</li>
-            <li>Settings menu</li>
-            <li>Colorful</li>
-            <li>Mini-games
-                <ul>
-                    <li>Blackjack</li>
-                </ul>
-            </li>
-            <li>Cross platform</li>
-        </ul>
-        <p>
-            I quite adore the simplicity of oldy video games such as MECC's 1998 The Oregon Trail.
-            That's why I attempted my own version. At the time of writing, it is not even close to completion, but I didn't that to happen.
-        </p>
-        <p>
-            Implementing baseline, framework-related features such as TUI borders and selection was quite enjoyable.
-            This was my first large C-based project, so, on a recommendation,
-            I used <a href="https://cmake.org">CMake</a>, a popular build system for C/C++.
-        </p>
-        <p>
-            I wanted to stay away from cross platform input libraries such as <a href="https://www.gnu.org/software/ncurses/">ncurses</a>, mostly for educational purposes.
-            However, this meant I had to research and account for the various querks of Windows and Unix (via <a
-                href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/termios.h.html">termios</a>);
-            I would not recommend doing so yourself.
-        </p>
-        <br>
-        <p>
-            For the screen figures shown in <a href="#samples">Samples</a>, I wrote a seperate program to capture console
-            output and convert it to HTML. Given a <abbr title="process identification">PID</abbr>, it uses the Win32 API to attach
-            to the console and gather screen buffer text and styles, and cursor position <i>(however, I could not get <a
-                href="https://learn.microsoft.com/en-us/windows/console/getconsolecursorinfo">GetConsoleCursorInfo</a>
-            to cooperate; it always returned an access denied error. If anyone suspects the reason, I am most curious to know)</i>.
-        </p>
+                    <figcaption>A game of blackjack</figcaption>
+                </figure>
+            </details>
+            <h2>Features</h2>
+            <ul>
+                <li>Written in C</li>
+                <li>Save and load progress</li>
+                <li>Settings menu</li>
+                <li>Colorful</li>
+                <li>Mini-games
+                    <ul>
+                        <li>Blackjack</li>
+                    </ul>
+                </li>
+                <li>Cross platform</li>
+            </ul>
+            <p>
+                I quite adore the simplicity of oldy video games such as MECC's 1998 The Oregon Trail.
+                That's why I attempted my own version. At the time of writing, it is not even close to completion, but I didn't that to happen.
+            </p>
+            <p>
+                Implementing baseline, framework-related features such as TUI borders and selection was quite enjoyable.
+                This was my first large C-based project, so, on a recommendation,
+                I used <a href="https://cmake.org">CMake</a>, a popular build system for C/C++.
+            </p>
+            <p>
+                I wanted to stay away from cross platform input libraries such as <a href="https://www.gnu.org/software/ncurses/">ncurses</a>, mostly for educational purposes.
+                However, this meant I had to research and account for the various querks of Windows and Unix (via <a
+                    href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/termios.h.html">termios</a>);
+                I would not recommend doing so yourself.
+            </p>
+            <br>
+            <p>
+                For the screen figures shown in <a href="#samples">Samples</a>, I wrote a seperate program to capture console
+                output and convert it to HTML. Given a <abbr title="process identification">PID</abbr>, it uses the Win32 API to attach
+                to the console and gather screen buffer text and styles, and cursor position <i>(however, I could not get <a
+                        href="https://learn.microsoft.com/en-us/windows/console/getconsolecursorinfo">GetConsoleCursorInfo</a>
+                    to cooperate; it always returned an access denied error. If anyone suspects the reason, I am most curious to know)</i>.
+            </p>
+        </article>
     </main>
     {% include 'footer' %}
 </body>

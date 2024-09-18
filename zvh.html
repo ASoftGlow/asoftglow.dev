@@ -1,0 +1,270 @@
+---
+title: Zombies v.s. Humans
+description: A remake of a Minecraft minigame
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    {% include 'head' %}
+    <style>
+        .copy {
+            user-select: all;
+            cursor: copy;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% include 'back' %}
+        <article>
+            {% include 'project-header' %}
+            <div>
+                <label>Address</label>
+                <input class="copy" type="text" readonly value="zvh.asoftglow.dev:25563">
+            </div>
+            <a href="https://discord.gg/mzj4EvBbhM">Discord</a>
+            <a href="https://store.zvh.asoftglow.dev">Store</a>
+            <h2>The Game</h2>
+            <p>Many years ago, there once was a Minecraft server called Full. It was a minigame server
+                with only one game: zombies v.s. humans.</p>
+            <p>
+                Not a particularly unique idea, but very effective for having fun. The basics were simple:
+                a zombie is randomly chosen and tasked to infect all other humans by killing them. If they and their
+                new infected teammates are successful before the timer runs out, the zombies win. If not, the humans wins.<br>
+                his takes place in a flat, rectangular arena. Humans start on one side, zombies spawn on the other.
+            </p>
+            <p>There were, additionally, a number of strategic elements to keep it interesting:
+                classes, maps, levels, loot crates, item shops, custom items and models, and more.</p>
+            <p>With only a few players, it was dull. But, with 10 or 20 or 30, you can imagine the chaos.
+                I have many great memories with my friends on that server</p>
+            <h2>The Fall</h2>
+            <p>
+                The problem arose with the growth. The lead developer, SuperJava
+                (fitting, as the plugin that made the game possible was written in Java),
+                figured all these players might be interested in other games, this one being so popular.
+                He made a void survial world, a prison world, a parkour world. And he was right, but it came at great cost:
+                only some players did. This split the playerbase, large for zombies v.s. humans, but too small to sustain multiple game.<br>
+                Gadually, less players joined zombies v.s. humans, and soon not enough to produce the mass chaos of the past.
+                It wasn't as fun any more, which caused more players to not play.
+            </p>
+            <p>For a period, the server was a shell of it's former self; it went through a rebrand, multiple resets to
+                generic minigames, until no one played at all.</p>
+            <p>During the summer of 2024, I remembered the good 'ol days of zombies v.s. humans, and wished it were still around.<br>
+                I wasn't one who thought this; people sometimes returned to its Discord to express similar feelings:</p>
+            <figure class="elevation">
+                <ul>
+                    {% msg "helfire_arrow", "2023-10-12T20:18:01.965Z" %}
+                    >farming<br>
+                    >oneblock<br>
+                    >luckyblock<br>
+                    hes fallen
+                    {% endmsg %}
+                    {% msg "Shaun._.me._.boi", "2023-10-12T20:50:09.020Z" %}
+                    bring back player v zombie :(
+                    {% endmsg %}
+                    {% msg "jonock", "2023-10-12T20:58:10.754Z" %}
+                    This dead<br>
+                    Used to be good player vs zombie
+                    {% endmsg %}
+                </ul>
+                <figcaption style="padding: 0 1em 1em;">
+                    <a href="https://discord.gg/bEZ2sPt3H8">Guild invite</a> •
+                    <a href="https://discord.com/channels/803713207511416892/803713207978033264/1162122025091997827">Msg link</a>
+                </figcaption>
+            </figure>
+            <p>Unfortunately, the owner wasn't very enthusiastic about bringing it back:</p>
+            <figure class="elevation">
+                <ul>
+                    {% msg "IntelligentNarc", "2024-05-14T14:57:28.086Z" %}
+                    <strong><code>@SuperJava</code></strong> do you still have the humans vs zombies files<br>
+                    cause i would be down to buy them
+                    {% endmsg %}
+                    {% msg "SuperJava", "2024-05-14T19:41:25.306Z" %}
+                    nah
+                    {% endmsg %}
+                    {% msg "IntelligentNarc", "2024-05-14T21:13:42.558Z" %}
+                    did you delete it?
+                    {% endmsg %}
+                    {% msg "SuperJava", "2024-05-14T21:25:28.793Z" %}
+                    idk brada<br>
+                    all the weed i smoke maskin sense
+                    {% endmsg %}
+                </ul>
+                <figcaption style="padding: 0 1em 1em;">
+                    <a href="https://discord.gg/bEZ2sPt3H8">Guild invite</a> •
+                    <a href="https://discord.com/channels/792863252950286336/792863253448884282/1239954743460364381">Msg link</a>
+                </figcaption>
+            </figure>
+            <p><br>Then I had a thought: I could remake it myself. I know how to code, and in Java, in constrast to my younger self.</p>
+            <h2>The (Momentary) Revival</h2>
+            <p>
+                In this way, too, it could be further improved; the games was not without problems. For instance, the leveling
+                system caused a large different between player's gear: a new player, with no armor, was destroyed by zombies, while
+                leveled player were unfazed by a horde. This left both extremes feeling helpless.<br>
+                Another gripe of mind was the custom models: they may be cool to some, but I thought them frivolous. The resourcepack
+                that provided them took a while to load, which made joining and leaving the server annoying.
+            </p>
+            <p>
+                In my remake, I tried to solve these issues by nerfing leveling upgrades, prohibiting a server resourcepack, and
+                writing a guide for new players.
+            </p>
+            <p></p>
+            <p>
+                While I had a server with some players, I figured I'd take advantage of it.
+                For fun, I added monetization with <a href="https://tebex.io">Tebex</a>: block colors and particle cosmetics.
+            </p>
+            <!-- <p>
+                ViaVersion plugin used to allow more versions to join.
+            </p> -->
+            <figure class="elevation" style="padding: 1em;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="431px" viewBox="-0.5 -0.5 431 402"
+                    style="max-width:100%;max-height:401px;">
+                    <defs />
+                    <g>
+                        <rect x="0" y="0" width="430" height="243.5" fill="none" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <rect x="160" y="10" width="106" height="26" fill="none" stroke="none" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 23px; margin-left: 213px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                                                Minecraft Server</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="213" y="27" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Minecraft Server</text>
+                            </switch>
+                        </g>
+                        <path d="M 101 224.37 L 101 323.63" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke" />
+                        <path d="M 101 219.12 L 104.5 226.12 L 101 224.37 L 97.5 226.12 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <path d="M 101 328.88 L 97.5 321.88 L 101 323.63 L 104.5 321.88 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <rect x="20" y="50" width="162" height="168" fill="none" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 160px; height: 1px; padding-top: 134px; margin-left: 21px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                                ZvH plugin</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="101" y="138" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Zvh plugin</text>
+                            </switch>
+                        </g>
+                        <rect x="200" y="50" width="120" height="45" fill="none" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 73px; margin-left: 201px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                                Tebex plugin</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="260" y="76" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Tebex plugin</text>
+                            </switch>
+                        </g>
+                        <rect x="290" y="160" width="140" height="70" fill="none" stroke="none" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 195px; margin-left: 275px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                                                <table cellpadding="2">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Software</td>
+                                                            <td><a href="https://purpurmc.org">Purplur</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Plugin Mod</td>
+                                                            <td><a href="https://bukkit.org/pages/about-us/">Bukkit</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Host</td>
+                                                            <td><a href="https://bloom.host">Bloom Host</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Version</td>
+                                                            <td>1.20.4</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="292" y="199" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">Software PurplurHostSho...</text>
+                            </switch>
+                        </g>
+                        <path d="M 260 320 L 260 101.37" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke" />
+                        <path d="M 260 96.12 L 263.5 103.12 L 260 101.37 L 256.5 103.12 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <path d="M 220 360 L 137.37 360" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke" />
+                        <path d="M 132.12 360 L 139.12 356.5 L 137.37 360 L 139.12 363.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <ellipse cx="260" cy="360" rx="40" ry="40" fill="none" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 360px; margin-left: 221px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                                Tebex</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="260" y="364" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Tebex</text>
+                            </switch>
+                        </g>
+                        <path d="M 71 338 C 71 346 131 346 131 338" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <path d="M 71 342 C 71 350 131 350 131 342" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <path d="M 71 346 C 71 354 131 354 131 346" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all" />
+                        <path d="M 71 338 C 71 327.33 131 327.33 131 338 L 131 382 C 131 392.67 71 392.67 71 382 Z" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10"
+                            pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                                    style="overflow: visible; text-align: left;">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 370px; margin-left: 72px;">
+                                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                                MySQL</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="101" y="374" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">MySQL</text>
+                            </switch>
+                        </g>
+                    </g>
+                    <switch>
+                        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" /><a transform="translate(0,-5)"
+                            xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Text
+                                is
+                                not SVG - cannot display</text></a>
+                    </switch>
+                </svg>
+                <figcaption>Architecture diagram</figcaption>
+            </figure>
+        </article>
+    </main>
+    {% include 'footer' %}
+</body>
+
+</html>

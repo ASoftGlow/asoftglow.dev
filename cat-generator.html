@@ -16,11 +16,14 @@ description: Pixel art image generator
 
 <body>
     <main>
-        {% include 'project-header' %}
-        <div>
-            <img width="50px" height="50px" id="cat-img" src="http://localhost:8080">
-            <button id="new-cat-btn">New</button>
-        </div>
+        {% include 'back' %}
+        <article>
+            {% include 'project-header' %}
+            <div>
+                <img width="50px" height="50px" id="cat-img" src="http://localhost:8080">
+                <button id="new-cat-btn">New</button>
+            </div>
+        </article>
     </main>
     {% include 'footer' %}
 </body>

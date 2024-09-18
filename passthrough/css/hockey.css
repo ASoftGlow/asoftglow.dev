@@ -1,13 +1,3 @@
-#icon {
-    background-image: url("../hlp/imgs/puck.svg");
-    width: 80px;
-    height: 80px;
-}
-
-header {
-    column-gap: 5px;
-}
-
 .gallery {
     text-align: center;
 }

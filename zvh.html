@@ -22,8 +22,7 @@ description: A remake of a Minecraft minigame
         <article>
             {% include 'project-header' %}
             <div>
-                <label>Address</label>
-                <input class="copy" type="text" readonly value="zvh.asoftglow.dev:25563">
+                Address: <span class="copy">zvh.asoftglow.dev:25563</span>
             </div>
             <a href="https://discord.gg/mzj4EvBbhM">Discord</a>
             <a href="https://store.zvh.asoftglow.dev">Store</a>
@@ -63,51 +62,39 @@ description: A remake of a Minecraft minigame
                 generic minigames, until no one played at all.</p>
             <p>During the summer of 2024, I remembered the good 'ol days of zombies vs. humans, and wished it were still around.<br>
                 I wasn't the only one who thought this; people sometimes returned to its Discord server to express similar feelings:</p>
-            <figure class="elevation">
-                <ul>
-                    {% msg "helfire_arrow", "2023-10-12T20:18:01.965Z" %}
-                    >farming<br>
-                    >oneblock<br>
-                    >luckyblock<br>
-                    hes fallen
-                    {% endmsg %}
-                    {% msg "Shaun._.me._.boi", "2023-10-12T20:50:09.020Z" %}
-                    bring back player v zombie :(
-                    {% endmsg %}
-                    {% msg "jonock", "2023-10-12T20:58:10.754Z" %}
-                    This dead<br>
-                    Used to be good player vs zombie
-                    {% endmsg %}
-                </ul>
-                <figcaption style="padding: 0 1em 1em;">
-                    <a href="https://discord.gg/bEZ2sPt3H8">Guild invite</a> •
-                    <a href="https://discord.com/channels/803713207511416892/803713207978033264/1162122025091997827">Msg link</a>
-                </figcaption>
-            </figure>
+            {% convo "https://discord.gg/bEZ2sPt3H8", "https://discord.com/channels/803713207511416892/803713207978033264/1162122025091997827" %}
+                {% msg "helfire_arrow", "2023-10-12T20:18:01.965Z" %}
+                >farming<br>
+                >oneblock<br>
+                >luckyblock<br>
+                hes fallen
+                {% endmsg %}
+                {% msg "Shaun._.me._.boi", "2023-10-12T20:50:09.020Z" %}
+                bring back player v zombie :(
+                {% endmsg %}
+                {% msg "jonock", "2023-10-12T20:58:10.754Z" %}
+                This dead<br>
+                Used to be good player vs zombie
+                {% endmsg %}
+            {% endconvo %}
             <p>Unfortunately, the owner wasn't very enthusiastic about bringing it back:</p>
-            <figure class="elevation">
-                <ul>
-                    {% msg "IntelligentNarc", "2024-05-14T14:57:28.086Z" %}
-                    <strong><code>@SuperJava</code></strong> do you still have the humans vs zombies files<br>
-                    cause i would be down to buy them
-                    {% endmsg %}
-                    {% msg "SuperJava", "2024-05-14T19:41:25.306Z" %}
-                    nah
-                    {% endmsg %}
-                    {% msg "IntelligentNarc", "2024-05-14T21:13:42.558Z" %}
-                    did you delete it?
-                    {% endmsg %}
-                    {% msg "SuperJava", "2024-05-14T21:25:28.793Z" %}
-                    idk brada<br>
-                    all the weed i smoke maskin sense
-                    {% endmsg %}
-                </ul>
-                <figcaption style="padding: 0 1em 1em;">
-                    <a href="https://discord.gg/bEZ2sPt3H8">Guild invite</a> •
-                    <a href="https://discord.com/channels/792863252950286336/792863253448884282/1239954743460364381">Msg link</a>
-                </figcaption>
-            </figure>
-            <p><br>Then I had a thought: I could remake it myself. I know how to code, and in Java, in constrast to my younger self.</p>
+            {% convo "https://discord.gg/bEZ2sPt3H8", "https://discord.com/channels/792863252950286336/792863253448884282/1239954743460364381" %}
+                {% msg "IntelligentNarc", "2024-05-14T14:57:28.086Z" %}
+                <strong><code>@SuperJava</code></strong> do you still have the humans vs zombies files<br>
+                cause i would be down to buy them
+                {% endmsg %}
+                {% msg "SuperJava", "2024-05-14T19:41:25.306Z" %}
+                nah
+                {% endmsg %}
+                {% msg "IntelligentNarc", "2024-05-14T21:13:42.558Z" %}
+                did you delete it?
+                {% endmsg %}
+                {% msg "SuperJava", "2024-05-14T21:25:28.793Z" %}
+                idk brada<br>
+                all the weed i smoke maskin sense
+                {% endmsg %}
+            {% endconvo %}
+            <p>Then I had a thought: I could remake it myself. I know how to code, and in Java, in constrast to my younger self.</p>
             <h2>The (Momentary) Revival</h2>
             <p>
                 In this way, too, it could be further improved; the games was not without problems. For instance, the leveling
@@ -124,8 +111,20 @@ description: A remake of a Minecraft minigame
             </p>
             <p></p>
             <p>
-                While I had a server with some players, I figured I'd take advantage of it.
+                While I had a server with some players, I figured I'd try out some things.
                 For fun, I added monetization with <a href="https://tebex.io">Tebex</a>: block colors and particle cosmetics.
+                The web store is located <a href="https://store.zvh.asoftglow.dev/">here</a> if you're curious.
+            </p>
+            <h3>Hosting</h3>
+            <p>
+                In the beginning, I hosted the server on my home computer, which wasn't ideal.
+                On a recommendation from a friend, I chose <a href="https://shockbyte.com">ShockByte</a> to host it instead.
+                Their Minecraft tier only differ by RAM, so I used one of their cheapest tiers of 2GB. 
+                It did well enough, and I had a shortage or memory.
+            </p>
+            <p>
+                I've been quite happy with the service. They included a MySQL database for free, 
+                which I eventually took advantage of to store player statistics.
             </p>
             <figure class="elevation" style="padding: 1em;">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="431px" viewBox="-0.5 -0.5 431 402"
@@ -270,6 +269,25 @@ description: A remake of a Minecraft minigame
                 </svg>
                 <figcaption>Architecture diagram</figcaption>
             </figure>
+            <h3>Excitement</h3>
+            <p>
+                With zombies vs. humans finally back, I was able to have similar fun as in the original.
+                <!-- <figure>
+                    <img>
+                    <figcaption>A few humans defend against the many zombies.</figcaption>
+                </figure> -->
+                Some Full veterans came and played for awhile, which made me very happy to see.
+                However, the playerbase soon declined. It was suggested I adverise and host events, but I didn't have
+                much luck with either, and didn't put much effort into doing so.
+            </p>
+            <h3>Withdrawal</h3>
+            <p>
+                Before I started university, I handed off the files to <a href="https://github.com/FilipTV2">FilipTV2</a>, an active player willing to host the game on their server instead.
+                At the time, there were barely any active players, so there wasn't much point in paying for a dead server.
+                Besides, I didn't think I would have much time to moderate and further develop going forward.
+                I'm thankful that FilipTV2 was willing to.<br>
+                For reference, they used <a href="https://bloom.host">Bloom Host</a>.
+            </p>
         </article>
     </main>
     {% include 'footer' %}

@@ -16,12 +16,13 @@ link: https://github.com/ASoftGlow/UselessShell
         {% include 'back' %}
         <article>
             {% include 'project-header' %}
-            <p>A shell written in C with no purpose. However, it was fun to write.</p>
+            <p>A shell written in C with no purpose. However, it <i>was</i> fun to write.</p>
             <h2>Features</h2>
             <ul>
                 <li>Command auto completion (Tab)</li>
                 <li>Command syntax hints (Ctrl+Tab)</li>
                 <li>List commands with <code>help</code></li>
+                <li>Colorful!</li>
                 <li>
                     <h3>Users</h3>
                     <ul>
@@ -52,17 +53,25 @@ link: https://github.com/ASoftGlow/UselessShell
                     </ul>
                 </li>
                 <li>
-                    <h3>Portable</h3>
-                    <p>Single executable file. Note a config directory is placed at</p>
-                    <table>
-                        <tbody>
-                            <tr><th>(Linux)</th><td>~/.config/useless_shell</td></tr>
-                            <tr><th>(Windows)</th><td>~/AppData/Roaming/.useless-shell</td></tr>
-                        </tbody>
-                    </table>
+                    Easy uninstallation: login as admin and run <code>uninstall</code>.
+                </li>
+                <li>
+                    Portable (ish): Single executable file and config directory.
                 </li>
             </ul>
-            <h1>Usage</h1>
+            <h1>Installation</h1>
+            <p>
+                Download the <a href="https://github.com/ASoftGlow/UselessShell/releases/latest">latest release</a>
+                or build from <a href="https://github.com/ASoftGlow/UselessShell">source</a> with CMake.
+            </p>
+            <p>Note that a config directory is placed at:</p>
+            <table>
+                <tbody>
+                    <tr><th>(Linux)</th><td>~/.config/useless_shell</td></tr>
+                    <tr><th>(Windows)</th><td>~/AppData/Roaming/.useless-shell</td></tr>
+                </tbody>
+            </table>
+            <p>Run the executable and enter a password for the new admin user.</p>
             <h3>Adding a new command</h2>
                 <ol>
                     <li>

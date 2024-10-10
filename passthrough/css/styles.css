@@ -3,7 +3,7 @@
 
     --color-text: black;
     --color-bg: white;
-    --color-accent: #93bd9a;
+    --color-accent: #83ae8a;
     --font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     --font-title: "Moderne Sans", Verdana, Tahoma, sans-serif;
 }
@@ -11,7 +11,7 @@
 @media not print and (prefers-color-scheme: dark) {
     :root {
         --color-accent: #486f4f;
-        --color-bg: #b2beb5;
+        --color-bg: #a6bda5;
     }
 }
 

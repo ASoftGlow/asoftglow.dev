@@ -9,6 +9,7 @@ link: https://github.com/ASoftGlow/UselessShell
 
 <head>
     {% include 'head' %}
+    <link rel="stylesheet" href="/css/tui.css">
 </head>
 
 <body>
@@ -17,6 +18,35 @@ link: https://github.com/ASoftGlow/UselessShell
         <article>
             {% include 'project-header' %}
             <p>A shell written in C with no purpose. However, it <i>was</i> fun to write.</p>
+<pre class="tui">Welcome, </span><span class="C">Guest</span>.                              
+                                             
+Today is Fri Oct 11 09:54:10 2024.           
+> help                                       
+- exit                                       
+- help (cmd) -b                              
+- clear                                                
+- history                                              
+  </span><span class="GR">Display the session command history                  
+</span>  - clear                                              
+- login &lt;username>                                     
+  </span><span class="GR">Login to an existing account                         
+</span>- logout                                               
+  </span><span class="GR">Logout of the currect account                        
+</span>- users                                                
+  - info (username)                                    
+  - list                                               
+  - create &lt;username> &lt;password> (super)               
+  - delete &lt;username>                                  
+- uninstall                                            
+- time -d -w                                           
+  </span><span class="GR">Shows system time                                    
+</span>> users list                                           
+1       [@] admin                                      
+> time -d                                              
+ _   _     __  __   __  _                              
+| | |_| ' |_  |_  '  _|  |                             
+|_| __| . __| __| . |__ _|_                            
+></span></pre>
             <h2>Features</h2>
             <ul>
                 <li>Command auto completion (Tab)</li>

@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "DOS VGA 437";
+    src: url("../fonts/DOS VGA 437") format("truetype");
+    font-display: swap;
+}
+
 pre.tui {
     --tui-red: red;
     --tui-yellow: rgb(251, 193, 56);
@@ -7,6 +13,7 @@ pre.tui {
     --tui-magenta: magenta;
     --tui-black: black;
     --tui-white: white;
+    --tui-gray: gray;
 
     --tui-bg: var(--tui-black);
     --tui-txt: var(--tui-white);
@@ -14,6 +21,9 @@ pre.tui {
     color: var(--tui-txt);
     background-color: var(--tui-bg);
     width: fit-content;
+    font-family: "DOS VGA 437", monospace;
+    line-height: 100%;
+    font-size: 0.7rem;
 
     &::selection,
     ::selection {
@@ -77,10 +87,26 @@ pre.tui {
         background-color: var(--tui-white);
     }
 
+    .GR {
+        color: var(--tui-gray);
+    }
+
     .cursor {
         @media not (prefers-reduced-motion) {
             animation: cursor_blink 1.5s step-start infinite;
         }
+    }
+}
+
+@media screen and (min-width: 375px) {
+    pre.tui {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    pre.tui {
+        font-size: 1rem;
     }
 }
 

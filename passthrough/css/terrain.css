@@ -33,6 +33,7 @@ td {
     display: flex;
     flex-direction: column;
     row-gap: 2px;
+    user-select: none;
 
     @media screen and (max-width: 500px) {
         display: none;
@@ -41,26 +42,18 @@ td {
 
 .hex-bytes {
     display: grid;
-    width: 100%;
-    column-width: 2em;
     gap: 2px;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-
-    span {
-        padding-left: 4px;
-        padding-right: 4px;
-
-        /* &:nth-child(8) {
-            padding-right: 12px;
-        } */
-    }
+    grid-template-columns: repeat(16, calc(2ch + 0.25lh + 2px));
 
     div {
         border-radius: 0.5lh;
         outline: 1px solid black;
         outline-offset: -1px;
         display: flex;
-        column-gap: 2px;
+        justify-content: space-between;
+	      padding: 0 0.25lh;
+        margin-left: -0.25lh;
+        margin-right: 2px;
     }
 }
 

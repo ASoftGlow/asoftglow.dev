@@ -1,6 +1,6 @@
 @font-face {
     font-family: "DOS VGA 437";
-    src: url("../fonts/DOS VGA 437") format("truetype");
+    src: url("/fonts/DOS VGA 437.ttf") format("truetype");
     font-display: swap;
 }
 

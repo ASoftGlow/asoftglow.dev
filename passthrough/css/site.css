@@ -8,17 +8,22 @@
     --font-title: "Moderne Sans", Verdana, Tahoma, sans-serif;
 }
 
-@media not print and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --color-accent: #486f4f;
         --color-bg: #a6bda5;
     }
 }
+ @media print {
+    :root {
+        --color-accent: white;
+        --color-bg: white;
+    }
+ }
 
 @font-face {
     font-family: "Moderne Sans";
     src: local("Moderne Sans"), url("/fonts/Moderne Sans Font.ttf") format("truetype");
-    font-display: swap;
 }
 
 header {
@@ -38,8 +43,7 @@ html {
     scrollbar-color: var(--color-bg) var(--color-text);
 }
 
-html,
-div {
+html, div {
     scrollbar-width: thin;
 }
 
@@ -55,8 +59,8 @@ body {
 }
 
 main {
-    width: 80%;
-    max-width: 400px;
+    width: 90%;
+    max-width: 33em;
     margin: 0 auto;
 }
 
@@ -84,12 +88,7 @@ footer {
     }
 }
 
-h1,
-h2,
-h3,
-h3,
-h5,
-h6 {
+h1, h2, h3, h3, h5, h6 {
     font-family: var(--font-title);
     word-spacing: -0.5ch;
 }
@@ -200,6 +199,10 @@ input[type="color"] {
         position: unset;
         margin-bottom: -10px;
     }
+
+    @media print {
+        display: none;
+    }
 }
 
 .product-link {
@@ -226,3 +229,14 @@ abbr {
 address {
     font-style: normal;
 }
+
+pre {
+    overflow-x: scroll;
+}
+
+@media (min-width: 400px) {
+    main {
+        width: 80%;
+    }
+}
+

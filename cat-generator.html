@@ -1,5 +1,5 @@
 ---
-title: Cat generator
+title: Cat Generator
 description: Pixel art image generator
 ---
 <!DOCTYPE html>
@@ -8,10 +8,22 @@ description: Pixel art image generator
 <head>
     {% include 'head' %}
     <style>
-        #cat-img {
-            image-rendering: pixelated;
+        #loading {
+          aspect-ratio: 1 / 1;
+          position: relative;
+
+          img {
+            position: absolute;
+          }
+        }
+
+        #canvas, #loading {
+          width: 60%;
+          margin: 1em 20%;
+          image-rendering: pixelated;
         }
     </style>
+    <link rel="modulepreload" href="/scripts/cat-generator.js">
 </head>
 
 <body>
@@ -20,8 +32,51 @@ description: Pixel art image generator
         <article>
             {% include 'project-header' %}
             <div>
-                <img width="50px" height="50px" id="cat-img" src="http://localhost:8080">
-                <button id="new-cat-btn">New</button>
+              <p>This was one of my first projects, using Python with <a href="https://pypi.org/project/pillow/">pillow</a>. I've ported it to Javascript and HTML5 canvas for the web. It's certainly not perfect, but it's good enough to be useful.</p>
+                <p>The current cat's parameters are stored in the global variable <code>cat</code> if you wish to save them.</p>
+                <p><i>Note: Browsers may randomize the canvas to help reduce fingerprinting, which will break this tool and cause red pixels to remain.</i></p>
+                <div id="loading"><img src="/images/cat-generator/loading.png" width="100%"></div>
+                <canvas id="canvas" style="display: none"></canvas>
+                <noscript>
+                  <p>Javascript is required for this tool.</p>
+                </noscript>
+                <button id="new-btn">New</button>
+                <button id="save-btn">Save</button>
+                <select id="base-input">
+                  <option value=0>Face</option>
+                  <option value=1>Loafing</option>
+                  <option value=2>Sitting</option>
+                </select>
+                <script type="module">
+                  import {loadImages, makeCat, drawCat} from "/scripts/cat-generator.js";
+
+                  const base_input = document.getElementById("base-input");
+                  const ctx = document.getElementById("canvas").getContext("2d");
+                  function drawCurrentCat() {
+                    drawCat(ctx, window.cat, Number.parseInt(base_input.value));
+                  }
+
+                  function newCat() {
+                    window.cat = makeCat();
+                    drawCurrentCat();
+                  }
+
+                  function saveCat() {
+                    let a = document.createElement("a");
+                    a.href = ctx.canvas.toDataURL();
+                    a.download = "cat";
+                    a.click();
+                  }
+
+                  await loadImages();
+                  document.getElementById("new-btn").addEventListener("click", newCat);
+                  document.getElementById("save-btn").addEventListener("click", saveCat);
+                  base_input.addEventListener("change", drawCurrentCat);
+
+                  newCat();
+                  document.getElementById("loading").style.display = "none";
+                  ctx.canvas.style.display = "block";
+                </script>
             </div>
         </article>
     </main>

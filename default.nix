@@ -1,6 +1,5 @@
 with import <nixpkgs> {};
-fastStdenv.mkDerivation {
-  name = "env";
-  nativeBuildInputs = [ nodejs ];
-  shellHook = "kitty npx @11ty/eleventy --serve &";
+pkgs.mkShell {
+  buildInputs = [ nodejs ];
+  shellHook = "npx @11ty/eleventy --serve";
 }

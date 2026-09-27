@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-check
 
 /**@param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -11,12 +11,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("year", () => new Date().getFullYear().toString());
     eleventyConfig.addPairedShortcode("convo",
         /**@type {(c: string, a: string, d: string) => string} */(content, guild_link, msg_link) => /*html*/`
-        <div style="display: grid;">
+        <div class="convo">
             <figure class="elevation">
                 <ul>
                     ${content}
                 </ul>
-                <figcaption style="padding: 0 1em 1em;">
+                <figcaption>
                     <a href="${guild_link}">Guild invite</a> •
                     <a href="${msg_link}">Msg link</a>
                 </figcaption>

@@ -2,90 +2,94 @@
 <html lang="en-US">
 
 <head>
-	{% include 'head' %}
-	<style>
-		#title {
-			text-align: center;
-			font-size: 60px;
-			word-spacing: -0.7ch;
-		}
+  {% include 'head' %}
+  <style>
+    #title {
+      text-align: center;
+      font-size: 60px;
+      word-spacing: -0.7ch;
+    }
 
-		#suptitle {
-			text-align: center;
-			font-size: 40px;
-			font-weight: 100;
-			margin-bottom: -1em;
-		}
+    #suptitle {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 100;
+      margin-bottom: -1em;
+    }
 
-		@media screen and (max-width: 420px) {
-			#title {
-				font-size: 40px;
-			}
+    @media screen and (max-width: 420px) {
+      #title {
+        font-size: 40px;
+      }
 
-			#suptitle {
-				font-size: 25px;
-			}
-		}
+      #suptitle {
+        font-size: 25px;
+      }
+    }
 
-		#bio {
-			p {
-				text-align: center;
-				margin-bottom: 30px;
-			}
-		}
-	</style>
+    #bio p {
+      text-align: center;
+      margin-bottom: 30px;
+      max-width: 30em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 
 <body>
-	<main>
-		<h1 id="title">A Soft Glow</h1>
-		<div id="bio">
-			<p>I'm a student who dabbles in programming.</p>
-			<p>I've messed around with
-				<b>web design</b>, <b>game development</b>, and more using<br><b>Python</b>, <b>Typescript</b>, <b>Java</b>, <b>C#</b>, <b>C</b>, and <b>C++</b>.
-			</p>
-		</div>
-		<div class="dotted divider"></div>
-		<div class="elv-wrapper" id="sign">
-			<h2 class="elevation elv-title">Projects</h2>
-			<div class="elevation elv-content">
-				<ul>
-					<li>
-						<a href="tot">The Oregon Trail</a>
-					</li>
-					<li>
-						<a href="useless-shell">Useless Shell</a>
-					</li>
-					<li>
-						<a href="zvh">Zombies v.s. Humans</a>
-					</li>
-					<li>
-						<a href="hockey">Hockey line picker</a>
-					</li>
-					<li>
-						<a href="website">Website</a>
-					</li>
-					<li>
-						<a href="terrain">Terrain generator</a>
-					</li>
-					<li>
-						<a href="menyow">Discord bot</a>
-					</li>
-					<li>
-						<details>
-							<summary>Misc</summary>
-							<ul>
-								<li>
-									<a href="misc/clock.html">Terraria clock</a>
-								</li>
-							</ul>
-						</details>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</main>
-	{% include 'footer' %}
+  <main>
+    <h1 id="title">A Soft Glow</h1>
+    <div id="bio">
+      <p>A student who dabbles in programming.</p>
+      <p>
+        <b>web design</b>, <b>game development</b>, and more using<br><b>Python</b>, <b>Typescript</b>, <b>Java</b>, <b>C#</b>, <b>C</b>, and <b style="text-wrap: nowrap">C++</b>.
+      </p>
+    </div>
+    <div class="dotted divider"></div>
+    <div class="elv-wrapper" id="sign">
+      <h2 class="elevation elv-title">Projects</h2>
+      <div class="elevation elv-content">
+        <ul>
+          <li>
+            <a href="tot">The Oregon Trail</a>
+          </li>
+          <li>
+            <a href="useless-shell">Useless Shell</a>
+          </li>
+          <li>
+            <a href="zvh">Zombies vs. Humans</a>
+          </li>
+          <li>
+            <a href="hockey">Hockey line picker</a>
+          </li>
+          <li>
+            <a href="website">Website</a>
+          </li>
+          <li>
+            <a href="terrain">Terrain generator</a>
+          </li>
+          <li>
+            <a href="cat-generator">Cat generator</a>
+          </li>
+          <!--<li>
+            <a href="menyow">Discord bot</a>
+          </li>-->
+          <li>
+            <details>
+              <summary>Misc</summary>
+              <ul>
+                <li>
+                  <a href="misc/clock.html">Terraria clock</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  {% include 'footer' %}
 </body>
 
 </html>

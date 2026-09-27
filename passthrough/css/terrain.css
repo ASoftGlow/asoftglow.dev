@@ -118,13 +118,11 @@ figure>img {
         justify-content: space-between;
 
         &:first-child {
-            margin-left: 0;
-            padding-left: 40px;
+            margin-left: 128px;
         }
 
         &:last-child {
-            margin-right: 0;
-            padding-right: 40px;
+            margin-right: 128px;
         }
     }
 

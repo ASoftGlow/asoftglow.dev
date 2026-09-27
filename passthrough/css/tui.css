@@ -4,7 +4,7 @@
     font-display: swap;
 }
 
-pre.tui {
+.tui {
     --tui-red: red;
     --tui-yellow: rgb(251, 193, 56);
     --tui-green: green;
@@ -20,10 +20,17 @@ pre.tui {
 
     color: var(--tui-txt);
     background-color: var(--tui-bg);
+}
+
+figure > pre.tui {
     width: fit-content;
+}
+
+pre.tui {
     font-family: "DOS VGA 437", monospace;
     line-height: 100%;
     font-size: 0.7rem;
+    margin: 0;
 
     &::selection,
     ::selection {
@@ -98,13 +105,13 @@ pre.tui {
     }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 400px) {
     pre.tui {
         font-size: 0.8rem;
     }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 500px) {
     pre.tui {
         font-size: 1rem;
     }

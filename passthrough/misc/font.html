@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: apollo7;
-            src: url("/fonts/apollo7.woff2") format("woff2");
+            src: url("apollo7.woff2") format("woff2");
         }
 
         html, body {
@@ -24,7 +24,7 @@
             background: none;
             resize: none;
             height: 100%;
-            font-size: 64px;
+            font-size: 128px;
             font-family: apollo7;
         }
 
@@ -32,21 +32,36 @@
             text-align: left;
         }
 
-        td {
+        td div {
             font-family: apollo7;
             font-size: 64px;
+            outline: 1px dotted;
+            width: 0.5em;
         }
     </style>
 </head>
 <body>
     <table>
         <thead>
-            <th>a</th><th>b</th><th>c</th><th>d</th>
+            <th>q</th><th>w</th><th>e</th><th>r</th><th>u</th><th>i</th><th>o</th><th>p</th>
         </thead>
         <tbody>
-            <td>a</td><td>b</td><td>c</td><td>d</td>
+            <td><div>q</div></td><td><div>w</div></td><td><div>e</div></td><td><div>r</div></td><td><div>u</div></td><td><div>i</div></td><td><div>o</div></td><td><div>p</div></td>
+        </tbody>
+        <thead>
+            <th>a</th><th>s</th><th>f</th><th>h</th><th>j</th><th>l</th><th>;</th>
+        </thead>
+        <tbody>
+            <td><div>a</div></td><td><div>s</div></td><td><div>f</div></td><td><div>h</div></td><td><div>j</div></td><td><div>l</div></td><td><div>;</div></td>
+        </tbody>
+        <thead>
+            <th>z</th><th>x</th><th>c</th><th>v</th><th>m</th><th>,</th><th>.</th><th>/</th>
+        </thead>
+        <tbody>
+            <td><div>z</div></td><td><div>x</div></td><td><div>c</div></td><td><div>v</div></td><td><div>m</div></td><td><div>,</div></td><td><div>.</div></td><td><div>/</div></td>
         </tbody>
     </table>
+    <!-- xvm.hqw -->
     <textarea spellcheck="false"></textarea>
 </body>
 </html>

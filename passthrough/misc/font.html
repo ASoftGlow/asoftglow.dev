@@ -63,5 +63,10 @@
     </table>
     <!-- xvm.hqw -->
     <textarea spellcheck="false"></textarea>
+    <script>
+      const ta = document.getElementsByTagName("textarea")[0];
+      if (location.hash) ta.value = location.hash.slice(1);
+      ta.addEventListener("input", e => location.hash = e.target.value);
+    </script>
 </body>
 </html>
